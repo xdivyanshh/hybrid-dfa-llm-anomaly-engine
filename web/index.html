@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid DFA–LLM Anomaly Engine | JIIT Theory of Computation</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --border: #30363d;
+            --text: #c9d1d9;
+            --text-bright: #f0f6fc;
+            --accent: #58a6ff;
+            --green: #2ea043;
+            --red: #f85149;
+            --yellow: #d29922;
+            --purple: #bc8cff;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+        body { background: var(--bg); color: var(--text); padding: 24px; line-height: 1.5; }
+        .header { text-align: center; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+        .header h1 { color: var(--text-bright); font-size: 1.8rem; margin-bottom: 6px; }
+        .header p { color: #8b949e; font-size: 0.95rem; }
+        .badge { background: #1f6feb22; color: var(--accent); border: 1px solid var(--accent); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; }
+        
+        .controls { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; background: var(--surface); padding: 16px; border-radius: 8px; border: 1px solid var(--border); }
+        .input-group { flex: 1; min-width: 300px; display: flex; gap: 8px; }
+        input[type="text"] { flex: 1; background: #090d13; border: 1px solid var(--border); border-radius: 6px; color: #fff; padding: 10px 14px; font-family: monospace; font-size: 0.95rem; }
+        button { background: #238636; color: #fff; border: none; padding: 10px 18px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+        button:hover { background: #2ea043; }
+        .presets { display: flex; gap: 8px; align-items: center; width: 100%; margin-top: 8px; }
+        .preset-btn { background: #21262d; border: 1px solid var(--border); font-size: 0.8rem; padding: 6px 12px; color: #c9d1d9; }
+        .preset-btn:hover { background: #30363d; border-color: #8b949e; }
+
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+        .card-title { font-size: 1.1rem; color: var(--text-bright); margin-bottom: 14px; display: flex; justify-content: space-between; align-items: center; }
+
+        /* Automata visual nodes */
+        .fsm-canvas { display: flex; justify-content: space-between; align-items: center; padding: 20px 10px; background: #090d13; border-radius: 6px; border: 1px solid var(--border); overflow-x: auto; }
+        .node { width: 52px; height: 52px; border-radius: 50%; border: 2px solid #58a6ff; display: flex; flex-direction: column; align-items: center; justify-content: center; font-weight: bold; font-size: 0.85rem; color: #fff; background: #161b22; position: relative; transition: all 0.3s; }
+        .node.trap { border-color: var(--red); border-style: dashed; }
+        .node.final { border: 3px double var(--green); }
+        .node.active { background: #1f6feb; border-color: #58a6ff; box-shadow: 0 0 16px #58a6ff; transform: scale(1.15); }
+        .node.active-trap { background: #da3633; border-color: #f85149; box-shadow: 0 0 16px #f85149; transform: scale(1.15); }
+        .node-label { font-size: 0.65rem; color: #8b949e; margin-top: 2px; }
+        .arrow { color: #8b949e; font-size: 1.2rem; font-weight: bold; }
+
+        /* Tape Display */
+        .tape-container { background: #090d13; border: 1px solid var(--border); border-radius: 6px; padding: 14px; overflow-x: auto; margin-top: 10px; }
+        .tape-ribbon { display: flex; gap: 4px; font-family: monospace; }
+        .tape-cell { min-width: 30px; height: 38px; border: 1px solid #30363d; display: flex; align-items: center; justify-content: center; font-weight: bold; background: #161b22; color: #58a6ff; border-radius: 4px; }
+        .tape-cell.masked { background: #3c1e22; border-color: var(--red); color: var(--red); font-weight: bold; }
+        .tape-cell.head { border: 2px solid var(--yellow); box-shadow: 0 0 8px var(--yellow); }
+
+        /* Report box */
+        .report-box { background: #090d13; border: 1px solid var(--border); border-radius: 6px; padding: 14px; font-family: monospace; font-size: 0.85rem; }
+        .alert-badge { padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.85rem; display: inline-block; margin-bottom: 8px; }
+        .alert-safe { background: #23863622; color: var(--green); border: 1px solid var(--green); }
+        .alert-flag { background: #d2992222; color: var(--yellow); border: 1px solid var(--yellow); }
+        .alert-crit { background: #f8514922; color: var(--red); border: 1px solid var(--red); }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Hybrid DFA–LLM Anomaly Engine</h1>
+        <p>A Neuro-Symbolic Log Triage System Using Deterministic Finite Automata, Moore Machines & Turing Machine Sanitizer</p>
+        <p style="margin-top: 6px;"><span class="badge">JIIT CSE</span> <span class="badge">Theory of Computation (24B11CS212)</span> <span class="badge">Second Year PBL</span></p>
+    </div>
+
+    <div class="controls">
+        <div class="input-group">
+            <input type="text" id="logInput" value="[INFO] 192.168.1.50 User_Admin Success" placeholder="Enter raw SSH log line...">
+            <button onclick="runPipeline()">Run Pipeline</button>
+        </div>
+        <div class="presets">
+            <span style="font-size: 0.85rem; color: #8b949e;">Quick Presets:</span>
+            <button class="preset-btn" onclick="loadPreset('A')">Case A (Valid Routine)</button>
+            <button class="preset-btn" onclick="loadPreset('B')">Case B (SQL Injection)</button>
+            <button class="preset-btn" onclick="loadPreset('C')">Case C (Brute Force 3x)</button>
+            <button class="preset-btn" onclick="loadPreset('D')">Case D (Password Scrub TM)</button>
+        </div>
+    </div>
+
+    <div class="grid">
+        <!-- 1. DFA Visualizer -->
+        <div class="card">
+            <div class="card-title">
+                <span>[1] Baseline DFA (Table 3)</span>
+                <span id="dfaVerdictBadge" class="badge">Waiting</span>
+            </div>
+            <div class="fsm-canvas">
+                <div class="node" id="node-q0">q0<span class="node-label">Start</span></div>
+                <div class="arrow">→</div>
+                <div class="node" id="node-q1">q1<span class="node-label">LEVEL</span></div>
+                <div class="arrow">→</div>
+                <div class="node" id="node-q2">q2<span class="node-label">IP</span></div>
+                <div class="arrow">→</div>
+                <div class="node" id="node-q3">q3<span class="node-label">USER</span></div>
+                <div class="arrow">→</div>
+                <div class="node final" id="node-q4">q4<span class="node-label">ACCEPT</span></div>
+                <div class="arrow" style="color:var(--red);">⤹</div>
+                <div class="node trap" id="node-qE">qE<span class="node-label">TRAP</span></div>
+            </div>
+            <p id="dfaPathText" style="margin-top: 10px; font-family: monospace; font-size: 0.85rem; color: #8b949e;">State path: None</p>
+        </div>
+
+        <!-- 2. Moore Machine Visualizer -->
+        <div class="card">
+            <div class="card-title">
+                <span>[2] Moore Session Monitor (Figure 3)</span>
+                <span id="mooreBadge" class="badge">m0: OK</span>
+            </div>
+            <div class="fsm-canvas">
+                <div class="node" id="node-m0">m0<span class="node-label">0 Fail (OK)</span></div>
+                <div class="arrow">→</div>
+                <div class="node" id="node-m1">m1<span class="node-label">1 Fail (OK)</span></div>
+                <div class="arrow">→</div>
+                <div class="node" id="node-m2">m2<span class="node-label">2 Fail (OK)</span></div>
+                <div class="arrow">→</div>
+                <div class="node final" id="node-m3" style="border-color: var(--yellow);">m3<span class="node-label">FLAG</span></div>
+            </div>
+            <p id="moorePathText" style="margin-top: 10px; font-family: monospace; font-size: 0.85rem; color: #8b949e;">Active IP: None | Failures: 0</p>
+        </div>
+
+        <!-- 3. Turing Machine Tape Visualizer -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <div class="card-title">
+                <span>[3] Turing Machine PII Sanitizer & Memory Tape</span>
+                <span id="tmBadge" class="badge">7-Tuple TM</span>
+            </div>
+            <p style="font-size: 0.85rem; color: #8b949e;">Head scans tape cells and rewrites sensitive tokens (e.g. <code>pass=</code>, <code>token=</code>) to <code>X</code> before sending to LLM API:</p>
+            <div class="tape-container">
+                <div class="tape-ribbon" id="tapeDisplay">
+                    <!-- Dynamic Tape Cells -->
+                </div>
+            </div>
+            <p id="tmStats" style="margin-top: 10px; font-family: monospace; font-size: 0.85rem; color: #58a6ff;">Tape operations: Idle</p>
+        </div>
+
+        <!-- 4. LLM Escalation Triage -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <div class="card-title">
+                <span>[4] Neural Slow Path (LLM Triage Assessment)</span>
+                <span id="routeBadge" class="badge">Route Status</span>
+            </div>
+            <div class="report-box" id="llmReport">
+                <span class="alert-badge alert-safe">LOCAL FAST PATH VERIFIED</span>
+                <p>Event conforms to regular language grammar. Handled locally by C++ DFA at zero API cost (0 µs).</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let failCountMap = {};
+
+        function loadPreset(type) {
+            const input = document.getElementById('logInput');
+            if (type === 'A') input.value = "[INFO] 192.168.1.50 User_Admin Success";
+            if (type === 'B') input.value = "[INFO] 192.168.1.50 DROP_TABLE User Success";
+            if (type === 'C') input.value = "[INFO] 192.168.1.52 User_Admin Failed";
+            if (type === 'D') input.value = "[INFO] 192.168.1.75 User_Guest pass=SuperSecretPassword999 Failed";
+            runPipeline();
+        }
+
+        function runPipeline() {
+            const line = document.getElementById('logInput').value.trim();
+            const words = line.split(/\s+/);
+
+            // Reset UI nodes
+            document.querySelectorAll('.node').forEach(n => n.classList.remove('active', 'active-trap'));
+
+            // 1. Lexer & DFA Execution
+            let state = 'q0';
+            let path = ['q0'];
+            let dfaAccepted = false;
+
+            document.getElementById('node-q0').classList.add('active');
+
+            // Regex checks
+            const isLevel = (w) => w === '[INFO]';
+            const isIp = (w) => /^((25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]?\d)$/.test(w);
+            const isUser = (w) => /^User_[A-Za-z0-9]+$/.test(w);
+            const isStatus = (w) => w === 'Success' || w === 'Failed';
+
+            for (let i = 0; i < words.length; i++) {
+                const w = words[i];
+                if (state === 'q0' && isLevel(w)) state = 'q1';
+                else if (state === 'q1' && isIp(w)) state = 'q2';
+                else if (state === 'q2' && isUser(w)) state = 'q3';
+                else if (state === 'q3' && isStatus(w)) state = 'q4';
+                else state = 'qE';
+                path.push(state);
+            }
+
+            dfaAccepted = (state === 'q4');
+            const finalNode = document.getElementById('node-' + state);
+            if (finalNode) {
+                finalNode.classList.add(state === 'qE' ? 'active-trap' : 'active');
+            }
+
+            const dfaBadge = document.getElementById('dfaVerdictBadge');
+            dfaBadge.textContent = dfaAccepted ? 'ACCEPTED (q4)' : 'REJECTED (Trap)';
+            dfaBadge.style.color = dfaAccepted ? 'var(--green)' : 'var(--red)';
+            document.getElementById('dfaPathText').textContent = 'State path: ' + path.join(' → ');
+
+            // 2. Moore Machine
+            let ip = words[1] || 'unknown';
+            let status = words[3] || 'unknown';
+            let mooreFlag = false;
+
+            if (dfaAccepted) {
+                if (status === 'Failed') {
+                    failCountMap[ip] = (failCountMap[ip] || 0) + 1;
+                } else if (status === 'Success') {
+                    failCountMap[ip] = 0;
+                }
+            }
+            let fails = failCountMap[ip] || 0;
+            let mState = fails >= 3 ? 'm3' : ('m' + fails);
+            document.getElementById('node-' + mState).classList.add('active');
+            mooreFlag = (mState === 'm3');
+
+            const mooreBadge = document.getElementById('mooreBadge');
+            mooreBadge.textContent = mooreFlag ? 'FLAG (m3)' : `${mState}: OK`;
+            mooreBadge.style.color = mooreFlag ? 'var(--yellow)' : 'var(--green)';
+            document.getElementById('moorePathText').textContent = `IP: ${ip} | Consecutive Failures: ${fails}`;
+
+            // 3. Turing Machine Tape Simulation
+            let tapeStr = line;
+            let maskedChars = 0;
+            let tapeHtml = '';
+
+            const piiMatch = tapeStr.match(/(pass=|password=|token=|secret=)([^\s]+)/i);
+            if (piiMatch) {
+                const prefix = piiMatch[1];
+                const secret = piiMatch[2];
+                maskedChars = secret.length;
+                tapeStr = tapeStr.replace(secret, 'X'.repeat(secret.length));
+            }
+
+            for (let i = 0; i < tapeStr.length; i++) {
+                let isMasked = (tapeStr[i] === 'X' && line[i] !== 'X');
+                tapeHtml += `<div class="tape-cell ${isMasked ? 'masked' : ''}">${escapeHtml(tapeStr[i])}</div>`;
+            }
+            tapeHtml += `<div class="tape-cell" style="color:#8b949e;">B</div>`;
+            document.getElementById('tapeDisplay').innerHTML = tapeHtml;
+            document.getElementById('tmStats').textContent = `Tape steps: ${tapeStr.length + 1} | Masked characters: ${maskedChars} chars`;
+
+            // 4. Escalation & LLM Assessment
+            const report = document.getElementById('llmReport');
+            const routeBadge = document.getElementById('routeBadge');
+
+            if (!dfaAccepted || mooreFlag) {
+                routeBadge.textContent = 'ESCALATED TO LLM';
+                routeBadge.style.color = 'var(--red)';
+
+                let severity = dfaAccepted ? 'HIGH' : (line.includes('DROP_TABLE') || line.includes("'") ? 'CRITICAL' : 'MEDIUM');
+                let badgeClass = severity === 'CRITICAL' ? 'alert-crit' : 'alert-flag';
+                let cause = mooreFlag 
+                    ? 'Credential brute-force attack detected (Exceeded 3 consecutive failures).'
+                    : (line.includes('DROP_TABLE') ? 'SQL Injection attempt targeting SSH username field.' : 'Grammar violation / Malformed log structure.');
+
+                report.innerHTML = `
+                    <span class="alert-badge ${badgeClass}">${severity} SEVERITY ANOMALY</span>
+                    <p style="margin-top: 6px;"><strong>Likely Cause:</strong> ${cause}</p>
+                    <p style="margin-top: 4px;"><strong>Sanitized Tape Input:</strong> <code>${escapeHtml(tapeStr)}</code></p>
+                    <p style="margin-top: 4px;"><strong>Recommended Remediation:</strong> Block IP <code>${escapeHtml(ip)}</code> on iptables firewall; trigger analyst review.</p>
+                `;
+            } else {
+                routeBadge.textContent = 'LOCAL FAST PATH (0 COST)';
+                routeBadge.style.color = 'var(--green)';
+                report.innerHTML = `
+                    <span class="alert-badge alert-safe">LOCAL FAST PATH VERIFIED</span>
+                    <p>Event conforms to regular language grammar. Handled locally by C++ DFA at zero API cost (0 µs).</p>
+                `;
+            }
+        }
+
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        }
+
+        // Initialize on load
+        loadPreset('A');
+    </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+[INFO] 192.168.1.50 User_Admin Success
+[INFO] 192.168.1.50 DROP_TABLE User Success
+[INFO] 192.168.1.52 User_Admin Failed
+[INFO] 192.168.1.52 User_Admin Failed
+[INFO] 192.168.1.52 User_Admin Failed
+[INFO] 192.168.1.75 User_Guest pass=SuperSecretPwd123 Failed
+[INFO] 10.0.0.12 User_Dev Success
+[INFO] 10.0.0.14 User_Deployer Success
+[INFO] 172.16.0.4 User_Tester Success
+[INFO] 192.168.1.99 'OR'1'='1 User Failed
+[INFO] 10.0.0.15 User_Alice Success
+[INFO] 10.0.0.16 User_Bob Success
+[INFO] 10.0.0.17 User_Charlie Success
+[INFO] 10.0.0.18 User_Dave Success
+[INFO] 192.168.1.105 token=ghp_secretTokenABC123XYZ Failed
+[INFO] 10.0.0.19 User_Eve Success
