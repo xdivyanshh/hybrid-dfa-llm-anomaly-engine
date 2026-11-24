@@ -1,0 +1,77 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">EMPIRICAL CASE STUDIES</span>
+            <span class="header-title">WORKED EXECUTION TRACES (CASES A–D)</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">Worked Empirical Traces</h1>
+        <h2 class="section-subtitle">Execution Paths Across Table 4 Worked Examples from Synopsis</h2>
+
+        <p class="body-lead">
+            Every state path has been empirically verified across the compiled C++14 engine. The following four cases showcase the primary execution routes.
+        </p>
+
+        <div class="grid-2">
+            <!-- Case A -->
+            <div class="card-box accent-burgundy">
+                <h3 class="card-title" style="color:#238636;">Case A: Routine Authentication (Fast Path)</h3>
+                <p class="body-text" style="font-family:'JetBrains Mono', monospace; font-size:7.5pt; color:#2A1715;">
+                    [INFO] 192.168.1.50 User_Admin Success
+                </p>
+                <p class="body-text">
+                    • <strong>Tokens:</strong> ⟨ LEVEL, IP, USER, STATUS ⟩<br>
+                    • <strong>DFA State Path:</strong> q₀ → q₁ → q₂ → q₃ → q₄ <strong>[ACCEPT]</strong><br>
+                    • <strong>Moore Monitor:</strong> m₀ (OK)<br>
+                    • <strong>Verdict:</strong> Handled locally in <strong>2 µs</strong> at <strong>$0.00 cost</strong>.
+                </p>
+            </div>
+
+            <!-- Case B -->
+            <div class="card-box accent-burgundy">
+                <h3 class="card-title" style="color:#DA3633;">Case B: SQL Injection Payload (Structural Reject)</h3>
+                <p class="body-text" style="font-family:'JetBrains Mono', monospace; font-size:7.5pt; color:#2A1715;">
+                    [INFO] 192.168.1.50 DROP_TABLE User Success
+                </p>
+                <p class="body-text">
+                    • <strong>Tokens:</strong> ⟨ LEVEL, IP, OTHER, OTHER, STATUS ⟩<br>
+                    • <strong>DFA State Path:</strong> q₀ → q₁ → q₂ → qE → qE → qE <strong>[REJECT]</strong><br>
+                    • <strong>Escalation:</strong> Neural Slow Path generates CRITICAL SQLi warning.
+                </p>
+            </div>
+
+            <!-- Case C -->
+            <div class="card-box accent-gold">
+                <h3 class="card-title" style="color:#C69248;">Case C: Brute-Force Password Spray (Behavioral)</h3>
+                <p class="body-text" style="font-family:'JetBrains Mono', monospace; font-size:7.5pt; color:#2A1715;">
+                    [INFO] 192.168.1.52 User_Admin Failed (x3 events)
+                </p>
+                <p class="body-text">
+                    • <strong>DFA State Path:</strong> q₀ → q₄ [ACCEPT] on all 3 events.<br>
+                    • <strong>Moore State Path:</strong> m₀ → m₁ → m₂ → m₃ <strong>[FLAG]</strong><br>
+                    • <strong>Verdict:</strong> 3rd failure triggers behavioral alarm; temporary firewall ban initiated.
+                </p>
+            </div>
+
+            <!-- Case D -->
+            <div class="card-box accent-burgundy">
+                <h3 class="card-title" style="color:#6A1A24;">Case D: Credential Leak on Tape (TM Sanitizer)</h3>
+                <p class="body-text" style="font-family:'JetBrains Mono', monospace; font-size:7.5pt; color:#2A1715;">
+                    [INFO] 192.168.1.75 User_Guest pass=Secret999 Failed
+                </p>
+                <p class="body-text">
+                    • <strong>DFA Path:</strong> Rejects at unexpected <code>pass=</code> token (qE).<br>
+                    • <strong>Turing Machine Tape:</strong> Head scans tape, detects trigger, rewrites 9 characters to <code>pass=XXXXXXXXX</code>.<br>
+                    • <strong>Safe Egress:</strong> Zero cleartext credential leakage.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">14</span> of 20</div>
+    </div>
+</section>

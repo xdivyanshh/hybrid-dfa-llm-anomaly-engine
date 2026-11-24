@@ -1,0 +1,70 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">NEURAL PIPELINE</span>
+            <span class="header-title">BOUNDED ESCALATION & LLM TRIAGE</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">The Neural Slow Path</h1>
+        <h2 class="section-subtitle">Bounded Memory Queueing and Schema-Validated LLM Forensic Analysis</h2>
+
+        <p class="body-lead">
+            The neural slow path handles the small fraction of events (typically 1–5%) that fail symbolic verification. To safeguard cloud credentials and prevent host memory crashes, escalation is buffered by a memory-bounded queue.
+        </p>
+
+        <div class="grid-2">
+            <div class="card-box">
+                <h3 class="card-title">Bounded Queue & Rate Limiter</h3>
+                <p class="body-text">
+                    • <strong>Bounded Capacity (K = 1,000 events):</strong> Drops or aggregates events when the queue reaches saturation, preserving system stability during sudden DDoS surges.<br>
+                    • <strong>Rate Throttling:</strong> Enforces an API dispatch frequency (e.g., 15 RPM) that completely prevents cloud providers from issuing <code>HTTP 429 Too Many Requests</code> blocks.<br>
+                    • <strong>Retry & Timeout:</strong> Failed network calls trigger exponential backoff before analyst notification.
+                </p>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">Structured Forensic Prompt Schema</h3>
+                <p class="body-text">
+                    The C++ engine serializes the event into a strict JSON payload:
+                </p>
+                <div class="code-container" style="font-size: 6.8pt;">
+{
+  "event_type": "ssh_login",
+  "sanitized_log": "[INFO] 192.168.1.75 pass=XXXX Failed",
+  "dfa_result": "REJECT",
+  "visited_states": ["q0", "q1", "q2", "q3", "qE"],
+  "last_valid_state": "q3",
+  "reason": "unexpected token at position 4"
+}
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box accent-gold" style="margin-top: 10px;">
+            <h3 class="card-title">LLM Structured Response Validation</h3>
+            <p class="body-text">
+                Rather than accepting open-ended conversational text, the engine validates the LLM's response against a formal JSON schema:
+            </p>
+            <div class="grid-4" style="margin-top: 6px; font-size: 7.5pt;">
+                <div style="background:#FFF; padding:6px; border-radius:4px; border:1px solid var(--border-warm);">
+                    <strong>Severity:</strong> LOW | MED | HIGH | CRIT
+                </div>
+                <div style="background:#FFF; padding:6px; border-radius:4px; border:1px solid var(--border-warm);">
+                    <strong>Likely Cause:</strong> Specific attack signature
+                </div>
+                <div style="background:#FFF; padding:6px; border-radius:4px; border:1px solid var(--border-warm);">
+                    <strong>Confidence:</strong> Score in range [0.0, 1.0]
+                </div>
+                <div style="background:#FFF; padding:6px; border-radius:4px; border:1px solid var(--border-warm);">
+                    <strong>Remediation:</strong> Actionable iptables rule
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">13</span> of 20</div>
+    </div>
+</section>

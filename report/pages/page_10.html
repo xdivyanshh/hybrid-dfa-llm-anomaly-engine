@@ -1,0 +1,112 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">FORMAL PROOFS</span>
+            <span class="header-title">TRANSITION MATRIX & MINIMALITY PROOF</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">Total Transition Function</h1>
+        <h2 class="section-subtitle">Full State Matrix Definition (Table 3) and Minimality Proof</h2>
+
+        <p class="body-lead">
+            To guarantee deterministic execution, the transition function <strong>δ: Q × Σ → Q</strong> is mathematically total across all |Q| × |Σ| = 6 × 5 = 30 state-token combinations.
+        </p>
+
+        <table class="editorial-table">
+            <thead>
+                <tr>
+                    <th>State q ∈ Q</th>
+                    <th>LEVEL</th>
+                    <th>IP</th>
+                    <th>USER</th>
+                    <th>STATUS</th>
+                    <th>OTHER</th>
+                    <th>Acceptance Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>→ q₀ (Start)</strong></td>
+                    <td class="code-cell" style="font-weight:bold; color:#238636;">q₁</td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td>Non-final</td>
+                </tr>
+                <tr>
+                    <td><strong>q₁</strong></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell" style="font-weight:bold; color:#238636;">q₂</td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td>Non-final</td>
+                </tr>
+                <tr>
+                    <td><strong>q₂</strong></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell" style="font-weight:bold; color:#238636;">q₃</td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td>Non-final</td>
+                </tr>
+                <tr>
+                    <td><strong>q₃</strong></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell" style="font-weight:bold; color:#238636;">q₄</td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td>Non-final</td>
+                </tr>
+                <tr>
+                    <td><strong>q₄ (Final)</strong></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td><strong style="color:#238636;">ACCEPT (Double Circle)</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>q<sub>E</sub> (Trap)</strong></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td class="code-cell">q<sub>E</sub></td>
+                    <td><strong style="color:#DA3633;">REJECT (Absorbing)</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="card-box accent-burgundy" style="margin-top: 10px;">
+            <h3 class="card-title">Proof of Minimality (Myhill-Nerode Equivalence Theorem)</h3>
+            <p class="body-text">
+                <strong>Theorem:</strong> The baseline automaton <em>M</em> has the minimum possible number of states for regular language <em>L</em><sub>baseline</sub>.
+            </p>
+            <p class="body-text">
+                <strong>Proof:</strong> Under the Myhill-Nerode theorem, two states <em>p, q</em> are equivalent (<em>p ≡ q</em>) iff for all strings <em>z</em> ∈ Σ*, δ̂(<em>p, z</em>) ∈ F ⇔ δ̂(<em>q, z</em>) ∈ F. Consider distinguishing suffixes <em>z</em>:
+            </p>
+            <p class="body-text" style="font-family: 'JetBrains Mono', monospace; font-size: 7.5pt; color: #6A1A24; line-height:1.5;">
+                • Suffix z = ε distinguishes q₄ (since q₄ ∈ F) from all {q₀, q₁, q₂, q₃, q<sub>E</sub>} (since none ∈ F).<br>
+                • Suffix z = STATUS distinguishes q₃ (leading to q₄ ∈ F) from {q₀, q₁, q₂, q<sub>E</sub>} (all leading to q<sub>E</sub> ∉ F).<br>
+                • Suffix z = USER · STATUS distinguishes q₂ from {q₀, q₁, q<sub>E</sub>}.<br>
+                • Suffix z = IP · USER · STATUS distinguishes q₁ from {q₀, q<sub>E</sub>}.<br>
+                • Suffix z = LEVEL · IP · USER · STATUS distinguishes q₀ from q<sub>E</sub>.<br>
+            </p>
+            <p class="body-text">
+                Every pair of states (<em>p, q</em>) in <em>Q</em> is pairwise distinguishable. Therefore, no two states can be merged, and the automaton of Table 3 is already mathematically minimal with |Q| = 6. ∎
+            </p>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">10</span> of 20</div>
+    </div>
+</section>

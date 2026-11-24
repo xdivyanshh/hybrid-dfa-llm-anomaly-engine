@@ -1,0 +1,93 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">SYMBOLIC ENGINE</span>
+            <span class="header-title">LEXER & LEXICAL TOKENIZER</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">The Symbolic Fast Path: Lexer</h1>
+        <h2 class="section-subtitle">Character-Level Regular Expressions and Abstract Token Mapping</h2>
+
+        <p class="body-lead">
+            The Lexer decomposes raw ASCII telemetry into discrete lexemes and classifies each into a formal token class over alphabet Σ = { LEVEL, IP, USER, STATUS, OTHER }.
+        </p>
+
+        <table class="editorial-table">
+            <thead>
+                <tr>
+                    <th>Token Class</th>
+                    <th>Formal Character-Level Regular Expression</th>
+                    <th>Matching Lexeme Sample</th>
+                    <th>Lexer Semantic Role</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>LEVEL</strong></td>
+                    <td class="code-cell">\[INFO\]</td>
+                    <td class="code-cell">[INFO]</td>
+                    <td>Establishes logging severity class boundary</td>
+                </tr>
+                <tr>
+                    <td><strong>IP</strong></td>
+                    <td class="code-cell">o\.o\.o\.o where o = 25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9]</td>
+                    <td class="code-cell">192.168.1.50</td>
+                    <td>Validates IPv4 octet bounds (0–255)</td>
+                </tr>
+                <tr>
+                    <td><strong>USER</strong></td>
+                    <td class="code-cell">User_[A-Za-z0-9]+</td>
+                    <td class="code-cell">User_Admin</td>
+                    <td>Verifies corporate identity naming conventions</td>
+                </tr>
+                <tr>
+                    <td><strong>STATUS</strong></td>
+                    <td class="code-cell">Success | Failed</td>
+                    <td class="code-cell">Success</td>
+                    <td>Binary authentication outcome indicator</td>
+                </tr>
+                <tr>
+                    <td><strong>OTHER</strong></td>
+                    <td class="code-cell">.* (any lexeme failing above patterns)</td>
+                    <td class="code-cell">DROP_TABLE</td>
+                    <td>Catches malformed strings, SQL keywords, flags</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="grid-2" style="margin-top: 10px;">
+            <div class="card-box">
+                <h3 class="card-title">Lexical Analysis Mechanics</h3>
+                <p class="body-text">
+                    The C++ lexer splits incoming strings at whitespace boundaries. Each whitespace-delimited lexeme is tested in priority sequence against POSIX Extended Regular Expressions compiled ahead-of-time.
+                </p>
+                <p class="body-text">
+                    Notice that IP address validation is not merely a naive digit check; it enforces mathematical bounding [0, 255] for each octet. An input such as <code>999.1.1.1</code> is automatically rejected and classified as <strong>OTHER</strong>, immediately exposing spoofed payloads.
+                </p>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">Token Stream Generation</h3>
+                <p class="body-text">
+                    Consider an attack event: <code>[INFO] 192.168.1.50 DROP_TABLE User Success</code>.
+                </p>
+                <div class="code-container">
+[INFO]       ──► Token: LEVEL
+192.168.1.50 ──► Token: IP
+DROP_TABLE   ──► Token: OTHER <span class="code-highlight">[ANOMALY DETECTED]</span>
+User         ──► Token: OTHER (Missing User_ prefix)
+Success      ──► Token: STATUS
+                </div>
+                <p class="body-text">
+                    The resulting token array ⟨ LEVEL, IP, OTHER, OTHER, STATUS ⟩ is transferred directly to the DFA input buffer.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">8</span> of 20</div>
+    </div>
+</section>

@@ -1,0 +1,71 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">IMPLEMENTATION</span>
+            <span class="header-title">PRESENTATION WEB DASHBOARD</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">System Implementation & GUI</h1>
+        <h2 class="section-subtitle">Real-Time Interactive Presentation Dashboard and Engine Toolchain</h2>
+
+        <p class="body-lead">
+            The project includes a production C++14 engine along with an interactive visual web dashboard designed for academic evaluation, live viva demonstrations, and operational monitoring.
+        </p>
+
+        <div class="grid-2">
+            <div class="card-box">
+                <h3 class="card-title">C++14 Engine Toolchain</h3>
+                <p class="body-text">
+                    • <strong>Language Standard:</strong> C++14 (ISO/IEC 14882)<br>
+                    • <strong>Compilation Command:</strong>
+                    <br><code style="font-size:7pt; color:#6A1A24;">g++ -std=c++14 -O2 -I include src/*.cpp -o anomaly_engine.exe</code><br>
+                    • <strong>Memory Architecture:</strong> Zero dynamic heap allocations in hot-path state transitions; transitions use lookup arrays.<br>
+                    • <strong>Unit Testing:</strong> Full assert test suite (<code>test_runner.exe</code>) validating Table 4 test cases.
+                </p>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">Web Visualizer Architecture</h3>
+                <p class="body-text">
+                    • <strong>Location:</strong> <code>web/index.html</code> (Served via Python on Port 8000).<br>
+                    • <strong>Reactive Nodes:</strong> Nodes q₀ … q₄, q<sub>E</sub> animate with teal/red glowing halos as tokens are consumed.<br>
+                    • <strong>Moore Dials:</strong> Visual counter tracking consecutive IP failures.<br>
+                    • <strong>Dynamic Tape:</strong> Displays memory cells being overwritten by the Turing head.
+                </p>
+            </div>
+        </div>
+
+        <div class="card-box accent-burgundy" style="margin-top: 10px;">
+            <h3 class="card-title">Visual Dashboard Layout Representation</h3>
+            <div style="background:#090D13; border:1px solid #30363D; border-radius:6px; padding:10px; color:#C9D1D9; font-family:'JetBrains Mono', monospace; font-size:7pt;">
+                <div style="display:flex; justify-content:space-between; border-bottom:1px solid #30363D; padding-bottom:4px; margin-bottom:6px;">
+                    <span style="color:#58A6FF; font-weight:bold;">HYBRID DFA–LLM DASHBOARD</span>
+                    <span style="color:#2EA043;">STATUS: ENGINE ACTIVE</span>
+                </div>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
+                    <div style="border:1px solid #30363D; padding:6px; border-radius:4px;">
+                        [1] DFA VERDICT: <span style="color:#2EA043;">[ACCEPT]</span> Path: q₀ → q₁ → q₂ → q₃ → q₄<br>
+                        [2] MOORE MONITOR: State m₀ (OK) | Failures: 0
+                    </div>
+                    <div style="border:1px solid #30363D; padding:6px; border-radius:4px;">
+                        [3] TAPE: [INFO] 192.168.1.75 pass=<span style="color:#F85149;">XXXXXXXXX</span> Failed<br>
+                        [4] ROUTE: LOCAL FAST PATH (Latency: 160 µs, Cost: $0.00)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-box accent-gold" style="margin-top: 10px;">
+            <h3 class="card-title">Live Viva Demonstration Readiness</h3>
+            <p class="body-text">
+                The visual dashboard allows evaluators to click preset buttons (Case A, B, C, D) or type arbitrary log lines. State transitions, token classifications, and tape head movements animate in real-time, providing an intuitive defense of the underlying theoretical machinery.
+            </p>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">17</span> of 20</div>
+    </div>
+</section>

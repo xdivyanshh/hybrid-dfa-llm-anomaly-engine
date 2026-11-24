@@ -1,0 +1,88 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">SYNOPSIS</span>
+            <span class="header-title">EXECUTIVE SUMMARY & DOCUMENT CONTROL</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">Executive Summary</h1>
+        <h2 class="section-subtitle">A New Paradigm in High-Throughput Cyber Telemetry Triage</h2>
+        
+        <p class="body-lead">
+            Modern enterprise Security Operations Centres (SOCs) face an existential bottleneck: telemetry logs arrive at hundreds of thousands of events per second, yet existing threat detection forces a catastrophic compromise between brittle, dumb regular expressions and slow, exorbitantly expensive Large Language Models.
+        </p>
+
+        <div class="grid-4" style="margin-bottom: 12px;">
+            <div class="stat-box">
+                <div class="stat-number">160<span style="font-size:14pt;">µs</span></div>
+                <div class="stat-label">Fast-Path Latency</div>
+                <div class="stat-desc">Per-event local DFA scan</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">95<span style="font-size:14pt;">%</span></div>
+                <div class="stat-label">Cost Reduction</div>
+                <div class="stat-desc">Routine traffic filtered at $0</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">O(N)</div>
+                <div class="stat-label">Time Complexity</div>
+                <div class="stat-desc">Zero ReDoS backtracking</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100<span style="font-size:14pt;">%</span></div>
+                <div class="stat-label">PII Redacted</div>
+                <div class="stat-desc">7-Tuple TM tape sanitizer</div>
+            </div>
+        </div>
+
+        <div class="card-box accent-burgundy" style="margin-bottom: 12px;">
+            <h3 class="card-title">The Neuro-Symbolic Architecture at a Glance</h3>
+            <p class="body-text">
+                This project implements a dual-lane log triage engine combining <strong>classical automata theory</strong> with <strong>neural generative reasoning</strong>. The <em>symbolic fast path</em> leverages a 6-state Minimal Deterministic Finite Automaton (DFA) running in C++14 to parse and validate log structure in linear time, accompanied by a 4-state Moore Machine session monitor that detects behavioral brute-force patterns across structurally compliant entries.
+            </p>
+            <p class="body-text">
+                Events that trigger DFA rejection (structural anomaly) or Moore flags (behavioral abuse) are escalated to an asynchronous, bounded-queue <em>neural slow path</em>. Prior to API egress, a formal 7-tuple Single-Tape Turing Machine acts as a payload transducer, physically scrubbing sensitive credentials and PII on its tape to ensure strict regulatory compliance (GDPR/DPDP).
+            </p>
+        </div>
+
+        <h3 class="card-title" style="margin-top: 6px;">Document Control & Project Governance</h3>
+        <table class="editorial-table">
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Specification Details</th>
+                    <th>Verification Standard</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Document Title</strong></td>
+                    <td>Hybrid DFA–LLM Anomaly Engine Final Technical Report</td>
+                    <td>Formal Academic PBL Monograph</td>
+                </tr>
+                <tr>
+                    <td><strong>Repository Link</strong></td>
+                    <td class="code-cell">https://github.com/xdivyanshh/hybrid-dfa-llm-anomaly-engine</td>
+                    <td>Verified Git Version Control</td>
+                </tr>
+                <tr>
+                    <td><strong>Target Environment</strong></td>
+                    <td>C++14 Native Engine (x86_64), POSIX/Win32, REST JSON Client</td>
+                    <td>ISO/IEC 14882:2014 Compliance</td>
+                </tr>
+                <tr>
+                    <td><strong>Theoretical Grounding</strong></td>
+                    <td>DFA Minimality (Myhill-Nerode), Moore Transducers, Rice's Theorem</td>
+                    <td>Hopcroft & Ullman / Sipser</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">2</span> of 20</div>
+    </div>
+</section>

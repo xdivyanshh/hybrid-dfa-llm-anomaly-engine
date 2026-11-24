@@ -1,0 +1,104 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">BEHAVIORAL FSM</span>
+            <span class="header-title">MOORE MACHINE SESSION MONITOR</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">Behavioral Session Monitor</h1>
+        <h2 class="section-subtitle">Finite State Transducer for Stateful Brute-Force Detection</h2>
+
+        <p class="body-lead">
+            A structurally valid log is not necessarily benign. A password-spraying bot or distributed credential stuffing attack can send thousands of perfectly formed authentication requests. The Moore Machine acts as a stateful behavioral monitor.
+        </p>
+
+        <div class="grid-2">
+            <div class="card-box">
+                <h3 class="card-title">Mathematical Transducer Definition</h3>
+                <p class="body-text">
+                    A Moore Machine is a 6-tuple <em>M</em><sub>Moore</sub> = (<em>S, S₀, Σ<sub>session</sub>, Λ, T, G</em>) where:
+                    <br>• <strong>State Set S:</strong> { m₀, m₁, m₂, m₃ }
+                    <br>• <strong>Initial State S₀:</strong> m₀ (0 consecutive failures)
+                    <br>• <strong>Input Alphabet Σ<sub>session</sub>:</strong> { Success, Failed }
+                    <br>• <strong>Output Alphabet Λ:</strong> { OK, FLAG }
+                    <br>• <strong>Output Function G:</strong> <em>G(m₀) = G(m₁) = G(m₂) = OK</em>, and <em>G(m₃) = FLAG</em>
+                </p>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">Per-Source IP Session Table</h3>
+                <p class="body-text">
+                    The engine maintains an internal hash map:
+                    <br><code class="code-cell">std::unordered_map&lt;std::string, MooreState&gt; ipStates_;</code>
+                    <br>Whenever a log line receives an <strong>ACCEPT</strong> verdict from the baseline DFA, its extracted IP address and authentication status (<code>Success</code> vs <code>Failed</code>) are passed to the Moore transducer.
+                </p>
+            </div>
+        </div>
+
+        <!-- SVG 6: Moore Machine State Diagram -->
+        <div class="diagram-canvas" style="margin-top: 10px; padding: 12px;">
+            <svg width="610" height="155" viewBox="0 0 610 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- State m0 -->
+                <circle cx="70" cy="50" r="24" fill="#FAF5EE" stroke="#238636" stroke-width="2"/>
+                <text x="70" y="47" fill="#238636" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" text-anchor="middle">m₀</text>
+                <text x="70" y="60" fill="#238636" font-size="7" font-weight="bold" text-anchor="middle">/ OK</text>
+                <text x="70" y="88" fill="#5C4D4A" font-size="7" text-anchor="middle">0 Failures</text>
+
+                <!-- m0 -> m1 on Failed -->
+                <path d="M94 50H176" stroke="#9A4333" stroke-width="2"/>
+                <polygon points="176,50 170,47 170,53" fill="#9A4333"/>
+                <text x="135" y="42" fill="#9A4333" font-size="7.5" font-weight="bold" text-anchor="middle">Failed</text>
+
+                <!-- State m1 -->
+                <circle cx="200" cy="50" r="24" fill="#FAF5EE" stroke="#238636" stroke-width="2"/>
+                <text x="200" y="47" fill="#238636" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" text-anchor="middle">m₁</text>
+                <text x="200" y="60" fill="#238636" font-size="7" font-weight="bold" text-anchor="middle">/ OK</text>
+                <text x="200" y="88" fill="#5C4D4A" font-size="7" text-anchor="middle">1 Failure</text>
+
+                <!-- m1 -> m2 on Failed -->
+                <path d="M224 50H306" stroke="#9A4333" stroke-width="2"/>
+                <polygon points="306,50 300,47 300,53" fill="#9A4333"/>
+                <text x="265" y="42" fill="#9A4333" font-size="7.5" font-weight="bold" text-anchor="middle">Failed</text>
+
+                <!-- State m2 -->
+                <circle cx="330" cy="50" r="24" fill="#FAF5EE" stroke="#238636" stroke-width="2"/>
+                <text x="330" y="47" fill="#238636" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" text-anchor="middle">m₂</text>
+                <text x="330" y="60" fill="#238636" font-size="7" font-weight="bold" text-anchor="middle">/ OK</text>
+                <text x="330" y="88" fill="#5C4D4A" font-size="7" text-anchor="middle">2 Failures</text>
+
+                <!-- m2 -> m3 on Failed -->
+                <path d="M354 50H436" stroke="#DA3633" stroke-width="2"/>
+                <polygon points="436,50 430,47 430,53" fill="#DA3633"/>
+                <text x="395" y="42" fill="#DA3633" font-size="7.5" font-weight="bold" text-anchor="middle">Failed</text>
+
+                <!-- State m3 (FLAG) -->
+                <circle cx="460" cy="50" r="26" fill="#F8EDE8" stroke="#DA3633" stroke-width="3"/>
+                <text x="460" y="47" fill="#DA3633" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" text-anchor="middle">m₃</text>
+                <text x="460" y="60" fill="#DA3633" font-size="7.5" font-weight="bold" text-anchor="middle">/ FLAG</text>
+                <text x="460" y="90" fill="#DA3633" font-size="7" font-weight="bold" text-anchor="middle">BRUTE-FORCE</text>
+
+                <!-- Loop on m3 -->
+                <path d="M480 35C495 20 495 65 480 65" stroke="#DA3633" stroke-width="1.5"/>
+                <text x="510" y="47" fill="#DA3633" font-size="6.5" text-anchor="middle">Failed</text>
+
+                <!-- Reset Arcs to m0 on Success -->
+                <path d="M460 76C460 125 70 125 70 74" stroke="#238636" stroke-width="1.5" stroke-dasharray="3 2"/>
+                <polygon points="70,74 67,80 73,80" fill="#238636"/>
+                <text x="265" y="130" fill="#238636" font-size="7.5" font-weight="bold" text-anchor="middle">Success: Resets state counter back to m₀ (OK)</text>
+            </svg>
+        </div>
+
+        <div class="card-box accent-burgundy" style="margin-top: 10px;">
+            <h3 class="card-title">Behavioral Edge Case Handling</h3>
+            <p class="body-text">
+                The Moore machine maintains state across discrete HTTP or socket events. If an attacker alternates attempts across 2 failures and 1 success, the state counter continuously resets to <em>m₀</em>, preventing false alarms on legitimately forgotten passwords. Only persistent, consecutive authentication failures from a single IP reach <em>m₃</em> and trigger escalation.
+            </p>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">11</span> of 20</div>
+    </div>
+</section>

@@ -1,0 +1,66 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">FORMAL FOUNDATIONS</span>
+            <span class="header-title">CHOMSKY HIERARCHY & AUTOMATA THEORY</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">Theoretical Foundations</h1>
+        <h2 class="section-subtitle">Formal Language Classification Across the Chomsky Hierarchy</h2>
+
+        <p class="body-lead">
+            The Chomsky Hierarchy categorizes formal grammars into four nested classes based on generative power. Selecting the correct automaton class is fundamental to building an optimal, non-backtracking triage engine.
+        </p>
+
+        <!-- SVG 3: Chomsky Hierarchy Layered Security Diagram -->
+        <div class="diagram-canvas" style="padding: 10px;">
+            <svg width="610" height="155" viewBox="0 0 610 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="15" y="10" width="580" height="135" rx="6" fill="#F3ECE1" stroke="#38231E" stroke-width="1.8"/>
+                <text x="30" y="28" fill="#38231E" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="bold">TYPE 0: RECURSIVELY ENUMERABLE (Turing Machines) • Arbitrary Unrestricted Computation</text>
+
+                <rect x="35" y="38" width="540" height="95" rx="6" fill="#FAF5EE" stroke="#6A1A24" stroke-width="1.8"/>
+                <text x="50" y="54" fill="#6A1A24" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="bold">TYPE 1 / 2: CONTEXT-FREE LANGUAGES (Pushdown Automata) • Nested Syntax, Balanced Structures</text>
+
+                <rect x="55" y="66" width="500" height="58" rx="6" fill="#FFFFFF" stroke="#9A4333" stroke-width="1.8"/>
+                <text x="70" y="82" fill="#9A4333" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="bold">TYPE 3: REGULAR LANGUAGES (Finite State Automata / DFA) • Linear Scan 𝒪(N)</text>
+
+                <!-- Mapping to Cyber Payloads -->
+                <rect x="70" y="92" width="470" height="22" rx="3" fill="#FAF5EE" stroke="#E2D7C8"/>
+                <text x="305" y="106" fill="#2A1715" font-family="'JetBrains Mono', monospace" font-size="7.5" font-weight="bold" text-anchor="middle">Normal SSH Logs: [INFO] IP USER STATUS ──► Strictly Recognized by Minimal DFA</text>
+            </svg>
+        </div>
+
+        <div class="grid-2" style="margin-top: 10px;">
+            <div class="card-box">
+                <h3 class="card-title">Mathematical Formulation of Log Grammar</h3>
+                <p class="body-text">
+                    Let <strong>Σ</strong> denote the formal alphabet of abstract token classes:
+                    <br><code class="code-cell" style="font-size:8pt;">Σ = { LEVEL, IP, USER, STATUS, OTHER }</code>
+                </p>
+                <p class="body-text">
+                    A healthy login event string <em>w</em> ∈ Σ* belongs to the regular language <em>L</em><sub>baseline</sub> if and only if it strictly follows the production rule:
+                    <br><code class="code-cell" style="font-size:8pt;">S → LEVEL · IP · USER · STATUS</code>
+                </p>
+                <p class="body-text">
+                    Because <em>L</em><sub>baseline</sub> is a regular language, it satisfies the Myhill-Nerode equivalence relation with a finite index of exactly 6 equivalence classes.
+                </p>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">The Boundary of Computation</h3>
+                <p class="body-text">
+                    While linear structures belong to Type 3, complex injection payloads (such as nested JSON queries or recursive SQL injections with matched parentheses <code>((1))</code>) belong to Type 2 (Context-Free) or Type 0 (Unrestricted).
+                </p>
+                <p class="body-text">
+                    By designing a DFA to recognize normal Type 3 behavior, any syntax deviation (such as injected symbols or invalid token counts) immediately drives the automaton into an irreversible <strong>Trap State (q<sub>E</sub>)</strong>, signaling a structural anomaly.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">6</span> of 20</div>
+    </div>
+</section>

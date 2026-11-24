@@ -1,0 +1,54 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">THEORETICAL BOUNDS</span>
+            <span class="header-title">DECIDABILITY & RICE'S THEOREM</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">Decidability & Rice's Theorem</h1>
+        <h2 class="section-subtitle">Theoretical Limits of Automata and Justification for Neuro-Symbolic Triage</h2>
+
+        <p class="body-lead">
+            A common question in computer science is: <em>"Why can't we simply build a larger DFA or Turing Machine that recognizes all malicious attacks without using an LLM?"</em> The answer is grounded in foundational computability theory.
+        </p>
+
+        <div class="card-box accent-burgundy">
+            <h3 class="card-title">Formal Statement of Rice's Theorem</h3>
+            <p class="body-text">
+                <strong>Rice's Theorem (1953):</strong> Any non-trivial semantic property of a language recognized by a Turing Machine is undecidable. Formally, let 𝓒 be a set of partial computable functions. If 𝓒 ≠ ∅ and 𝓒 ≠ 𝓕 (the set of all partial computable functions), then the language problem:
+                <br><code class="code-cell" style="font-size:8pt; font-weight:bold;">L<sub>𝓒</sub> = { ⟨M⟩ | L(M) ∈ 𝓒 }</code><br>
+                is mathematically undecidable.
+            </p>
+        </div>
+
+        <div class="grid-2" style="margin-top: 10px;">
+            <div class="card-box">
+                <h3 class="card-title">Application to Threat Detection</h3>
+                <p class="body-text">
+                    Whether an arbitrary program or script is "malicious" is a non-trivial semantic property of its behavior. Therefore, <strong>no algorithm, DFA, or Turing Machine can decide for every arbitrary program whether it is malicious</strong>.
+                </p>
+                <p class="body-text">
+                    This mathematical reality dictates our architectural division of labor:
+                    <br>• The <strong>DFA models only "normal" structure</strong> (which is decidable).
+                    <br>• The <strong>LLM operates as a probabilistic heuristic</strong>, providing contextual evidence rather than an impossible decision procedure.
+                </p>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">The Role of Redaction Transducers</h3>
+                <p class="body-text">
+                    While semantic classification of attacks is undecidable, syntactic string transformation (such as PII masking) is computable and belongs to the class of functions computed by Turing Transducers.
+                </p>
+                <p class="body-text">
+                    By limiting our Turing Machine strictly to data sanitization <em>f: Σ* → Γ*</em>, we preserve formal termination guarantees while delegating ambiguous reasoning to the neural layer.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">16</span> of 20</div>
+    </div>
+</section>

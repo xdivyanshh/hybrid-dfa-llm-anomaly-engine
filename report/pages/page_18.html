@@ -1,0 +1,72 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">SECURITY HARDENING</span>
+            <span class="header-title">THREAT MODEL & ADVERSARIAL HARDENING</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">Threat Model & Hardening</h1>
+        <h2 class="section-subtitle">Adversarial Robustness and Defense-in-Depth Protections</h2>
+
+        <p class="body-lead">
+            Like any cyber defense mechanism, the hybrid anomaly engine itself is a target for intelligent adversaries attempting evasion, timing side-channel exploitation, or denial of service.
+        </p>
+
+        <div class="grid-2">
+            <div class="card-box accent-cognac">
+                <h3 class="card-title">Adversarial Attack Vectors</h3>
+                <p class="body-text">
+                    • <strong>Token Smuggling:</strong> Inserting whitespace or null bytes to split tokens across lexeme boundaries.<br>
+                    • <strong>DDoS on Slow Path:</strong> Flood of malformed lines intended to exhaust LLM API budgets and saturate queues.<br>
+                    • <strong>Slow Brute-Force:</strong> Spreading password guesses across multiple IP subnets to evade the 3-failure Moore threshold.
+                </p>
+            </div>
+            <div class="card-box accent-burgundy">
+                <h3 class="card-title">Engine Countermeasures</h3>
+                <p class="body-text">
+                    • <strong>Strict Canonicalization:</strong> The lexer strips control characters prior to regex compilation.<br>
+                    • <strong>Bounded Queue Drop:</strong> Excess anomalies beyond queue capacity trigger local logging without blocking engine threads.<br>
+                    • <strong>Global Sliding Window:</strong> Augments per-IP tracking with global subnet rate limiting.
+                </p>
+            </div>
+        </div>
+
+        <table class="editorial-table" style="margin-top: 10px;">
+            <thead>
+                <tr>
+                    <th>Threat Scenario</th>
+                    <th>Vulnerable Component</th>
+                    <th>Automata Theory Countermeasure</th>
+                    <th>Residual Risk Rating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Catastrophic ReDoS</strong></td>
+                    <td>Regex Lexer</td>
+                    <td>Pre-compiled DFA state tables guarantee 𝒪(N) without backtracking.</td>
+                    <td style="color:#238636; font-weight:bold;">NONE (Mathematically Eliminated)</td>
+                </tr>
+                <tr>
+                    <td><strong>Queue Exhaustion (OOM)</strong></td>
+                    <td>Escalation Queue</td>
+                    <td>Fixed ring-buffer with drop-oldest eviction policy.</td>
+                    <td style="color:#238636; font-weight:bold;">LOW (Bounded Memory)</td>
+                </tr>
+                <tr>
+                    <td><strong>PII Data Exfiltration</strong></td>
+                    <td>Cloud LLM REST Client</td>
+                    <td>Turing Machine tape scrubber enforces redaction before payload serialization.</td>
+                    <td style="color:#238636; font-weight:bold;">MINIMAL (Deterministic Masking)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">18</span> of 20</div>
+    </div>
+</section>

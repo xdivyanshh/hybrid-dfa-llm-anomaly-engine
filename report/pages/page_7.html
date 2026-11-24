@@ -1,0 +1,105 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">SYSTEM ARCHITECTURE</span>
+            <span class="header-title">DUAL-LANE NEURO-SYMBOLIC ENGINE</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">System Architecture</h1>
+        <h2 class="section-subtitle">High-Level Blueprint: Symbolic Fast Path vs. Neural Slow Path</h2>
+
+        <p class="body-lead">
+            The Hybrid Anomaly Engine is engineered as a two-lane architecture. The <em>Symbolic Fast Path</em> runs locally on bare metal in C++, while the <em>Neural Slow Path</em> operates asynchronously via a rate-limited JSON escalation channel.
+        </p>
+
+        <!-- SVG 4: End-to-End System Block Diagram -->
+        <div class="diagram-canvas">
+            <svg width="600" height="160" viewBox="0 0 600 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Ingestion -->
+                <rect x="10" y="60" width="80" height="40" rx="4" fill="#38231E"/>
+                <text x="50" y="78" fill="#FFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="bold" text-anchor="middle">RAW LOG</text>
+                <text x="50" y="90" fill="#E8BF7A" font-family="'Plus Jakarta Sans', sans-serif" font-size="6.5" text-anchor="middle">Stream Ingest</text>
+
+                <path d="M90 80H115" stroke="#6A1A24" stroke-width="1.5"/>
+                <polygon points="115,80 109,77 109,83" fill="#6A1A24"/>
+
+                <!-- Lexer -->
+                <rect x="115" y="55" width="80" height="50" rx="4" fill="#FAF5EE" stroke="#6A1A24" stroke-width="1.5"/>
+                <text x="155" y="74" fill="#6A1A24" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="bold" text-anchor="middle">C++ LEXER</text>
+                <text x="155" y="86" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="6.5" text-anchor="middle">Regex Tokens</text>
+                <text x="155" y="96" fill="#82726F" font-family="'JetBrains Mono', monospace" font-size="6" text-anchor="middle">LEVEL, IP, ...</text>
+
+                <path d="M195 80H220" stroke="#6A1A24" stroke-width="1.5"/>
+                <polygon points="220,80 214,77 214,83" fill="#6A1A24"/>
+
+                <!-- DFA Engine -->
+                <rect x="220" y="50" width="85" height="60" rx="4" fill="#FAF5EE" stroke="#6A1A24" stroke-width="2"/>
+                <text x="262" y="70" fill="#6A1A24" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="bold" text-anchor="middle">DFA PARSER</text>
+                <text x="262" y="82" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="6.5" text-anchor="middle">Table 3 Matrix</text>
+                <text x="262" y="94" fill="#238636" font-family="'Plus Jakarta Sans', sans-serif" font-size="6.5" font-weight="bold" text-anchor="middle">O(N) Scan</text>
+
+                <!-- Accept Branch -->
+                <path d="M305 65H335V45H365" stroke="#238636" stroke-width="1.5"/>
+                <polygon points="365,45 359,42 359,48" fill="#238636"/>
+                <text x="330" y="58" fill="#238636" font-size="6.5" font-weight="bold">ACCEPT</text>
+
+                <!-- Moore Machine -->
+                <rect x="365" y="25" width="80" height="40" rx="4" fill="#FFF" stroke="#238636" stroke-width="1.5"/>
+                <text x="405" y="42" fill="#238636" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="bold" text-anchor="middle">MOORE FSM</text>
+                <text x="405" y="54" fill="#5C4D4A" font-family="'Plus Jakarta Sans', sans-serif" font-size="6" text-anchor="middle">m0..m3 Fail Counter</text>
+
+                <!-- Safe Local Store -->
+                <path d="M445 45H500" stroke="#238636" stroke-width="1.5"/>
+                <polygon points="500,45 494,42 494,48" fill="#238636"/>
+                <rect x="500" y="30" width="90" height="30" rx="4" fill="#238636"/>
+                <text x="545" y="46" fill="#FFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="bold" text-anchor="middle">LOCAL LOG STORE</text>
+                <text x="545" y="54" fill="#FFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="5.5" text-anchor="middle">Cost: $0.00 • 160 µs</text>
+
+                <!-- Reject & Flag Branch to TM -->
+                <path d="M305 95H340V125H365" stroke="#DA3633" stroke-width="1.5"/>
+                <path d="M405 65V125H415" stroke="#C69248" stroke-width="1.5"/>
+                <polygon points="365,125 359,122 359,128" fill="#DA3633"/>
+                <text x="330" y="112" fill="#DA3633" font-size="6.5" font-weight="bold">REJECT (qE)</text>
+
+                <!-- Turing Sanitizer -->
+                <rect x="365" y="110" width="85" height="38" rx="4" fill="#FFF" stroke="#DA3633" stroke-width="1.5"/>
+                <text x="407" y="125" fill="#6A1A24" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="bold" text-anchor="middle">TM SANITIZER</text>
+                <text x="407" y="137" fill="#DA3633" font-family="'Plus Jakarta Sans', sans-serif" font-size="6" text-anchor="middle">Tape Redaction</text>
+
+                <path d="M450 128H480" stroke="#6A1A24" stroke-width="1.5"/>
+                <polygon points="480,128 474,125 474,131" fill="#6A1A24"/>
+
+                <!-- LLM REST API -->
+                <rect x="480" y="110" width="110" height="38" rx="4" fill="#6A1A24"/>
+                <text x="535" y="125" fill="#FFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="bold" text-anchor="middle">NEURAL SLOW PATH</text>
+                <text x="535" y="137" fill="#E8BF7A" font-family="'Plus Jakarta Sans', sans-serif" font-size="6" text-anchor="middle">LLM Triage & JSON Schema</text>
+            </svg>
+        </div>
+
+        <div class="grid-2" style="margin-top: 10px;">
+            <div class="card-box">
+                <h3 class="card-title">Symbolic Fast Path Responsibilities</h3>
+                <p class="body-text">
+                    • <strong>Microsecond Execution:</strong> Native C++ compilation ensures deterministic execution overhead of under 200 microseconds per event.<br>
+                    • <strong>ReDoS Resistance:</strong> Unlike backtracking regex engines, the total transition table never branches backwards.<br>
+                    • <strong>Stateful Awareness:</strong> The Moore machine monitors per-IP consecutive failures to flag credential stuffing attacks that mimic valid log structure.
+                </p>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">Neural Slow Path Safeguards</h3>
+                <p class="body-text">
+                    • <strong>Bounded Memory Queue:</strong> Protects local hosts from memory exhaustion during large DDoS spikes.<br>
+                    • <strong>Pre-Egress Turing Redaction:</strong> Ensures that unencrypted user credentials never escape the private host perimeter.<br>
+                    • <strong>Strict Schema Enforcement:</strong> The LLM's structured assessment (Severity, Evidence, Remediation) is strictly validated against JSON schema rules.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">7</span> of 20</div>
+    </div>
+</section>

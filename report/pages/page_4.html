@@ -1,0 +1,88 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">PROBLEM ANALYSIS</span>
+            <span class="header-title">THE MODERN ENTERPRISE LOG CRISIS</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">The Enterprise Log Crisis</h1>
+        <h2 class="section-subtitle">Data Deluge and the Downstream Cognitive Chokepoint</h2>
+        
+        <p class="body-lead">
+            In modern cloud enterprise networks, security and infrastructure daemons produce massive volumes of semi-structured text. A medium-scale banking or e-commerce infrastructure routinely generates in excess of 100,000 log events per second.
+        </p>
+
+        <!-- SVG 1: Enhanced Spacious Telemetry Deluge Chokepoint -->
+        <div class="diagram-canvas" style="padding: 12px;">
+            <svg width="610" height="165" viewBox="0 0 610 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Ingestion Storm Box -->
+                <rect x="15" y="15" width="145" height="135" rx="6" fill="#FAF5EE" stroke="#6A1A24" stroke-width="1.8"/>
+                <rect x="15" y="15" width="145" height="26" rx="6" fill="#6A1A24"/>
+                <text x="87" y="32" fill="#FFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="bold" text-anchor="middle">INGESTION STORM</text>
+                
+                <text x="28" y="58" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="8">• 100k+ events / sec</text>
+                <text x="28" y="74" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="8">• SSH, NGINX, Auth logs</text>
+                <text x="28" y="90" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="8">• 98% Normal Routine</text>
+                <text x="28" y="106" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="8">• Terabytes / day</text>
+                
+                <rect x="25" y="118" width="125" height="22" rx="3" fill="#38231E"/>
+                <text x="87" y="132" fill="#E8BF7A" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="bold" text-anchor="middle">8.6 BILLION LOGS / DAY</text>
+
+                <!-- Flow Channel 1 -->
+                <path d="M160 82 H210" stroke="#9A4333" stroke-width="2.5"/>
+                <polygon points="210,82 202,77 202,87" fill="#9A4333"/>
+                <text x="185" y="73" fill="#9A4333" font-size="7.5" font-weight="bold" text-anchor="middle">Raw Stream</text>
+
+                <!-- Funnel Chokepoint -->
+                <polygon points="215,30 310,60 310,105 215,135" fill="#E8BF7A" opacity="0.3" stroke="#C69248" stroke-width="1.8"/>
+                <text x="258" y="80" fill="#6A1A24" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="bold" text-anchor="middle">TRIAGE</text>
+                <text x="258" y="92" fill="#6A1A24" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="bold" text-anchor="middle">CHOKEPOINT</text>
+
+                <!-- Flow Channel 2 -->
+                <path d="M310 82 H350" stroke="#DA3633" stroke-width="2.5"/>
+                <polygon points="350,82 342,77 342,87" fill="#DA3633"/>
+
+                <!-- Traditional AI Crisis Box (Spacious) -->
+                <rect x="350" y="15" width="245" height="135" rx="6" fill="#FFF" stroke="#DA3633" stroke-width="1.8"/>
+                <rect x="350" y="15" width="245" height="26" rx="6" fill="#DA3633"/>
+                <text x="472" y="32" fill="#FFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" font-weight="bold" text-anchor="middle">TRADITIONAL AI CRISIS</text>
+
+                <text x="365" y="58" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="8">• <strong>Catastrophic Latency:</strong> 1.5s / event</text>
+                <text x="365" y="76" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="8">• <strong>Bankrupting Cost:</strong> $0.002 / call ($17M/day)</text>
+                <text x="365" y="94" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="8">• <strong>Rate Limits:</strong> HTTP 429 System Blindness</text>
+                <text x="365" y="112" fill="#2A1715" font-family="'Plus Jakarta Sans', sans-serif" font-size="8">• <strong>Privacy Breach:</strong> Raw PII leaked to Cloud</text>
+                
+                <rect x="362" y="122" width="220" height="20" rx="3" fill="#F8EDE8" stroke="#DA3633"/>
+                <text x="472" y="135" fill="#DA3633" font-family="'Plus Jakarta Sans', sans-serif" font-size="7" font-weight="bold" text-anchor="middle">SYSTEM CRASHES UNDER REAL-WORLD LOAD</text>
+            </svg>
+        </div>
+
+        <div class="grid-2" style="margin-top: 10px;">
+            <div class="card-box">
+                <h3 class="card-title">The False Economy of "Dumb" Pipelines</h3>
+                <p class="body-text">
+                    Historically, organizations attempted to filter events using static regex strings in syslog daemons. However, regex engines that rely on Non-Deterministic Finite Automata (NFA) with backtracking suffer from <strong>Regular Expression Denial of Service (ReDoS)</strong>. A maliciously crafted input forces exponential time complexity 𝒪(2<sup>N</sup>), causing CPUs to peg at 100% utilization.
+                </p>
+                <p class="body-text">
+                    Furthermore, pure regex rules cannot detect multi-step behavioral anomalies (such as a slow password-guessing attack across three valid attempts) and cannot explain novel or zero-day attack payloads.
+                </p>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">The Need for Formal Language Theory</h3>
+                <p class="body-text">
+                    By formally classifying normal system telemetry as a <strong>Regular Language</strong>, we construct deterministic finite-state recognizers that guarantee linear time execution 𝒪(N) with mathematical certitude. The core problem of modern telemetry is not detection—it is <em>rapid, zero-cost routing</em>.
+                </p>
+                <p class="body-text">
+                    Our architecture routes 95% of routine entries directly to local storage at zero cost, reserving expensive AI inference exclusively for events that deviate from the formal language grammar.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">4</span> of 20</div>
+    </div>
+</section>

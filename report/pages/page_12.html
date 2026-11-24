@@ -1,0 +1,96 @@
+<section class="page">
+    <div class="running-header">
+        <div class="header-left">
+            <span class="header-badge">TURING MACHINE</span>
+            <span class="header-title">PII & SECRET DATA SANITIZER</span>
+        </div>
+        <div class="header-right">JIIT NOIDA • DEPT OF CSE</div>
+    </div>
+    <div>
+        <h1 class="section-title">Data Privacy & The Turing Machine</h1>
+        <h2 class="section-subtitle">A Formal 7-Tuple Memory Tape Transducer for Pre-Egress PII Redaction</h2>
+
+        <p class="body-lead">
+            When anomalous logs are escalated to cloud-hosted LLM endpoints, raw text may contain confidential API tokens, bearer keys, and user passwords. To comply with GDPR, HIPAA, and DPDP mandates, we deploy a Single-Tape Turing Machine as a payload sanitizer.
+        </p>
+
+        <div class="grid-2">
+            <div class="card-box">
+                <h3 class="card-title">Mathematical 7-Tuple Definition</h3>
+                <p class="body-text">
+                    The Sanitizer is formulated as:
+                    <br><code class="code-cell" style="font-size:8pt; font-weight:bold;">M<sub>TM</sub> = (Q, Σ, Γ, δ, q₀, B, F)</code><br>
+                    • <strong>Q:</strong> { q<sub>scan</sub>, q<sub>match</sub>, q<sub>mask</sub>, q<sub>halt</sub> }<br>
+                    • <strong>Σ:</strong> Printable ASCII input characters.<br>
+                    • <strong>Γ:</strong> Tape alphabet Σ ∪ { B, 'X' } (B is blank symbol).<br>
+                    • <strong>q₀:</strong> Start state q<sub>scan</sub>.<br>
+                    • <strong>F:</strong> Halting state { q<sub>halt</sub> }.
+                </p>
+            </div>
+            <div class="card-box">
+                <h3 class="card-title">Transition Function δ Logic</h3>
+                <p class="body-text">
+                    1. <strong>Scanning Mode (q<sub>scan</sub>):</strong> Head reads symbols moving Right (R). If symbol is B, enters q<sub>halt</sub>.<br>
+                    2. <strong>Pattern Detection (q<sub>match</sub>):</strong> Identifies secret triggers (<code>pass=</code>, <code>token=</code>, <code>pwd=</code>).<br>
+                    3. <strong>Masking Mode (q<sub>mask</sub>):</strong> Overwrites sensitive characters with mask symbol <code>'X'</code> on the tape until hitting a whitespace or delimiter.
+                </p>
+            </div>
+        </div>
+
+        <!-- SVG 7: Turing Machine Tape & Head Ribbon -->
+        <div class="diagram-canvas" style="margin-top: 10px; padding: 12px;">
+            <svg width="610" height="155" viewBox="0 0 610 155" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Ribbon Frame -->
+                <rect x="25" y="45" width="560" height="42" fill="#FAF5EE" stroke="#38231E" stroke-width="2"/>
+                
+                <!-- Normal Cells -->
+                <rect x="35" y="50" width="30" height="32" fill="#FFF" stroke="#E2D7C8"/>
+                <text x="50" y="70" fill="#2A1715" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" text-anchor="middle">p</text>
+                <rect x="70" y="50" width="30" height="32" fill="#FFF" stroke="#E2D7C8"/>
+                <text x="85" y="70" fill="#2A1715" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" text-anchor="middle">a</text>
+                <rect x="105" y="50" width="30" height="32" fill="#FFF" stroke="#E2D7C8"/>
+                <text x="120" y="70" fill="#2A1715" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" text-anchor="middle">s</text>
+                <rect x="140" y="50" width="30" height="32" fill="#FFF" stroke="#E2D7C8"/>
+                <text x="155" y="70" fill="#2A1715" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" text-anchor="middle">s</text>
+                <rect x="175" y="50" width="30" height="32" fill="#FFF" stroke="#E2D7C8"/>
+                <text x="190" y="70" fill="#2A1715" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="bold" text-anchor="middle">=</text>
+
+                <!-- Masked Cells (Crimson) -->
+                <rect x="210" y="50" width="30" height="32" fill="#F8EDE8" stroke="#DA3633" stroke-width="1.8"/>
+                <text x="225" y="70" fill="#DA3633" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">X</text>
+                <rect x="245" y="50" width="30" height="32" fill="#F8EDE8" stroke="#DA3633" stroke-width="1.8"/>
+                <text x="260" y="70" fill="#DA3633" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">X</text>
+                <rect x="280" y="50" width="30" height="32" fill="#F8EDE8" stroke="#DA3633" stroke-width="1.8"/>
+                <text x="295" y="70" fill="#DA3633" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">X</text>
+                <rect x="315" y="50" width="30" height="32" fill="#F8EDE8" stroke="#DA3633" stroke-width="1.8"/>
+                <text x="330" y="70" fill="#DA3633" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">X</text>
+                <rect x="350" y="50" width="30" height="32" fill="#F8EDE8" stroke="#DA3633" stroke-width="1.8"/>
+                <text x="365" y="70" fill="#DA3633" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="bold" text-anchor="middle">X</text>
+
+                <!-- Blank Symbols -->
+                <rect x="385" y="50" width="30" height="32" fill="#FFF" stroke="#E2D7C8"/>
+                <text x="400" y="70" fill="#82726F" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">B</text>
+                <rect x="420" y="50" width="30" height="32" fill="#FFF" stroke="#E2D7C8"/>
+                <text x="435" y="70" fill="#82726F" font-family="'JetBrains Mono', monospace" font-size="10" text-anchor="middle">B</text>
+
+                <!-- TM Read/Write Head -->
+                <polygon points="330,10 320,35 340,35" fill="#C69248"/>
+                <rect x="290" y="2" width="80" height="15" rx="3" fill="#C69248"/>
+                <text x="330" y="13" fill="#FFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="6.5" font-weight="bold" text-anchor="middle">TAPE HEAD [q_mask]</text>
+                <text x="330" y="115" fill="#DA3633" font-family="'Plus Jakarta Sans', sans-serif" font-size="7.5" font-weight="bold" text-anchor="middle">δ(q_mask, 'S') ──► (q_mask, 'X', R)</text>
+            </svg>
+        </div>
+
+        <div class="card-box accent-gold" style="margin-top: 10px;">
+            <h3 class="card-title">Empirical Tape Execution Metrics</h3>
+            <p class="body-text">
+                In benchmark tests across 16 sample events, the Turing Machine executed a total of 153 tape steps, masking 41 sensitive characters across passwords and GitHub personal access tokens (<code>token=ghp_...</code>) with zero memory faults.
+            </p>
+        </div>
+    </div>
+    <div class="running-footer">
+        <div class="footer-logo">HYBRID DFA–LLM ANOMALY ENGINE</div>
+        <div>Theory of Computation (24B11CS212) • Final Technical Report</div>
+        <div class="page-number-box">Page <span class="page-num">12</span> of 20</div>
+    </div>
+</section>
