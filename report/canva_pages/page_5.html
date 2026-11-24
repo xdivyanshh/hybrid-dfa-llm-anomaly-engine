@@ -1,0 +1,145 @@
+<section class="page theme-dark">
+    <div class="canva-top-header"><span>ALGORITHMIC COMPARISON</span><span>RULES VS. LLM INFERENCE</span></div>
+    <div class="page-content" style="padding-top: 6mm; padding-bottom: 6mm; gap: 14px;">
+        
+        <div>
+            <div class="gold-eyebrow">ARCHITECTURAL TRADE-OFF ANALYSIS</div>
+            <h1 class="canva-title" style="font-size: 34pt; line-height: 1.05; margin-bottom: 8px;">
+                THE ALGORITHMIC DILEMMA
+            </h1>
+            <p class="canva-body" style="font-size: 10.2pt; color: var(--text-cream-dim); max-width: 95%; margin-bottom: 12px;">
+                Modern security engineering is paralyzed between two flawed paradigms: brittle, regex-based rule engines vulnerable to ReDoS attacks, versus generative LLMs that exhaust server compute, breach privacy boundaries, and bankrupt operational budgets.
+            </p>
+        </div>
+
+        <!-- 2-Column Split: Left = Red Capsules, Right = 2 Large Taller Charts -->
+        <div style="display: grid; grid-template-columns: 1.05fr 1.15fr; gap: 24px; flex: 1; align-items: stretch;">
+            
+            <!-- Left Column: Key Targets / Specifications (Canva Red Capsule Pills) -->
+            <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <span style="font-family: 'Cinzel', serif; font-size: 9pt; letter-spacing: 2.5px; color: var(--gold); text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 12px;">
+                        KEY ARCHITECTURAL BENCHMARKS
+                    </span>
+
+                    <div class="canva-capsule">
+                        <span>Deterministic DFA Latency:</span>
+                        <span class="val">1.8 &mu;s / event</span>
+                    </div>
+
+                    <div class="canva-capsule">
+                        <span>Pure LLM Inference Latency:</span>
+                        <span class="val">840,000 &mu;s (466,000&times;)</span>
+                    </div>
+
+                    <div class="canva-capsule">
+                        <span>Local Edge Offload Ratio:</span>
+                        <span class="val">95.2% Resolved Locally</span>
+                    </div>
+
+                    <div class="canva-capsule">
+                        <span>ReDoS Vulnerability Risk:</span>
+                        <span class="val">Provably 0.0% (O(N) Bound)</span>
+                    </div>
+
+                    <div class="canva-capsule">
+                        <span>Credential Leakage Risk:</span>
+                        <span class="val">0.0% (TM Tape Redaction)</span>
+                    </div>
+
+                    <div class="canva-capsule">
+                        <span>Host Server CPU Savings:</span>
+                        <span class="val">88.5% Compute Reduction</span>
+                    </div>
+                </div>
+
+                <div class="dark-card" style="padding: 12px 14px; background: rgba(35, 18, 17, 0.9); border: 1px solid var(--border-gold);">
+                    <div style="font-size: 8.6pt; color: var(--text-cream-dim); line-height: 1.52;">
+                        <strong style="color: var(--gold-light);">The Neuro-Symbolic Resolution:</strong> Combine the microsecond deterministic speed of finite automata with the zero-shot reasoning depth of Large Language Models.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Two Large Taller Charts (Bar Chart + Line Trend Chart) -->
+            <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 14px;">
+                
+                <!-- Chart 1: Monthly Cost Comparison Bar Chart (Taller & Centered) -->
+                <div class="dark-card" style="flex: 1; padding: 14px 18px; display: flex; flex-direction: column; justify-content: space-between; background: #231211;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); padding-bottom: 6px;">
+                        <span style="font-family: 'Cinzel'; font-size: 8.2pt; color: var(--gold); font-weight: bold; letter-spacing: 1.5px;">
+                            FIGURE 3A: MONTHLY OPERATING COST ($ USD)
+                        </span>
+                        <span style="font-size: 7.5pt; color: var(--text-cream-dim); font-family: 'JetBrains Mono';">100k EPS LOAD</span>
+                    </div>
+
+                    <svg viewBox="0 0 340 180" style="width: 100%; flex: 1; min-height: 0; display: block; margin-top: 6px;">
+                        <!-- Grid Lines -->
+                        <line x1="45" y1="25" x2="320" y2="25" stroke="rgba(197, 159, 122, 0.15)" stroke-width="1" />
+                        <line x1="45" y1="65" x2="320" y2="65" stroke="rgba(197, 159, 122, 0.15)" stroke-width="1" />
+                        <line x1="45" y1="105" x2="320" y2="105" stroke="rgba(197, 159, 122, 0.15)" stroke-width="1" />
+                        <line x1="45" y1="145" x2="320" y2="145" stroke="rgba(197, 159, 122, 0.3)" stroke-width="1.5" />
+
+                        <!-- Y-Axis labels -->
+                        <text x="38" y="29" text-anchor="end" fill="#9E8C82" font-size="8" font-family="JetBrains Mono">$15k</text>
+                        <text x="38" y="69" text-anchor="end" fill="#9E8C82" font-size="8" font-family="JetBrains Mono">$10k</text>
+                        <text x="38" y="109" text-anchor="end" fill="#9E8C82" font-size="8" font-family="JetBrains Mono">$5k</text>
+                        <text x="38" y="149" text-anchor="end" fill="#9E8C82" font-size="8" font-family="JetBrains Mono">$0</text>
+
+                        <!-- Bar 1: Pure LLM (Cream/White rounded bar) -->
+                        <rect x="85" y="27" width="70" height="118" rx="6" fill="#F5EFEB" />
+                        <text x="120" y="20" text-anchor="middle" fill="#FFF" font-family="JetBrains Mono" font-size="9" font-weight="bold">$15,200</text>
+                        <text x="120" y="165" text-anchor="middle" fill="#DFC4A8" font-family="Plus Jakarta Sans" font-size="8.5">Pure LLM</text>
+
+                        <!-- Bar 2: Hybrid Engine (Wine-Red rounded bar) -->
+                        <rect x="195" y="133" width="70" height="12" rx="4" fill="#801818" stroke="#C59F7A" stroke-width="1.5" />
+                        <text x="230" y="125" text-anchor="middle" fill="#68D391" font-family="JetBrains Mono" font-size="9" font-weight="bold">$240</text>
+                        <text x="230" y="165" text-anchor="middle" fill="#68D391" font-family="Plus Jakarta Sans" font-size="8.5" font-weight="bold">Hybrid Engine</text>
+                    </svg>
+                </div>
+
+                <!-- Chart 2: Latency Scalability Line Chart (Taller & Centered) -->
+                <div class="dark-card" style="flex: 1; padding: 14px 18px; display: flex; flex-direction: column; justify-content: space-between; background: #231211;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); padding-bottom: 6px;">
+                        <span style="font-family: 'Cinzel'; font-size: 8.2pt; color: var(--gold); font-weight: bold; letter-spacing: 1.5px;">
+                            FIGURE 3B: LATENCY RESPONSE VS. LOG VOLUME
+                        </span>
+                        <span style="font-size: 7.5pt; color: var(--text-cream-dim); font-family: 'JetBrains Mono';">SCALING</span>
+                    </div>
+
+                    <svg viewBox="0 0 340 180" style="width: 100%; flex: 1; min-height: 0; display: block; margin-top: 6px;">
+                        <!-- Grid Lines -->
+                        <line x1="45" y1="25" x2="320" y2="25" stroke="rgba(197, 159, 122, 0.15)" stroke-width="1" />
+                        <line x1="45" y1="65" x2="320" y2="65" stroke="rgba(197, 159, 122, 0.15)" stroke-width="1" />
+                        <line x1="45" y1="105" x2="320" y2="105" stroke="rgba(197, 159, 122, 0.15)" stroke-width="1" />
+                        <line x1="45" y1="145" x2="320" y2="145" stroke="rgba(197, 159, 122, 0.3)" stroke-width="1.5" />
+
+                        <!-- Y-Labels -->
+                        <text x="38" y="29" text-anchor="end" fill="#9E8C82" font-size="7.5" font-family="JetBrains Mono">1000ms</text>
+                        <text x="38" y="69" text-anchor="end" fill="#9E8C82" font-size="7.5" font-family="JetBrains Mono">500ms</text>
+                        <text x="38" y="109" text-anchor="end" fill="#9E8C82" font-size="7.5" font-family="JetBrains Mono">100ms</text>
+                        <text x="38" y="149" text-anchor="end" fill="#9E8C82" font-size="7.5" font-family="JetBrains Mono">0ms</text>
+
+                        <!-- Pure LLM Latency Line (Soaring Exponentially) -->
+                        <path d="M 60 125 Q 150 110 200 65 T 290 28" fill="none" stroke="#E53E3E" stroke-width="3" stroke-dasharray="4,4" />
+                        <circle cx="290" cy="28" r="5" fill="#E53E3E" />
+                        <text x="275" y="44" fill="#FFB2B2" font-size="8" font-family="JetBrains Mono" text-anchor="end">Pure LLM (840ms+)</text>
+
+                        <!-- Hybrid Engine Flat Line (At bottom 1.8us) -->
+                        <line x1="60" y1="143" x2="290" y2="143" stroke="#68D391" stroke-width="3.5" />
+                        <circle cx="290" cy="143" r="5" fill="#68D391" />
+                        <text x="175" y="135" fill="#68D391" font-size="8.5" font-family="JetBrains Mono" font-weight="bold">Hybrid Fast-Path (1.8 &mu;s)</text>
+
+                        <!-- X-Labels -->
+                        <text x="60" y="165" text-anchor="middle" fill="#9E8C82" font-size="8" font-family="JetBrains Mono">10k EPS</text>
+                        <text x="175" y="165" text-anchor="middle" fill="#9E8C82" font-size="8" font-family="JetBrains Mono">50k EPS</text>
+                        <text x="290" y="165" text-anchor="middle" fill="#9E8C82" font-size="8" font-family="JetBrains Mono">100k EPS</text>
+                    </svg>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <div class="canva-bottom-bar"><span>ARCHITECTURAL BENCHMARKING</span><span>RULES VS LLMS • SECTION 1.3</span></div>
+</section>

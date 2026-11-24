@@ -1,0 +1,134 @@
+<section class="page theme-cream">
+    <div class="canva-top-header"><span>TEMPORAL AUTOMATA</span><span>STATEFUL MOORE TRANSDUCER SPECIFICATION</span></div>
+    <div class="page-content" style="padding-top: 6mm; padding-bottom: 6mm; gap: 14px;">
+        
+        <div>
+            <div class="gold-eyebrow" style="color: var(--wine-red);">FINITE STATE TRANSDUCERS</div>
+            <h1 class="canva-title" style="color: var(--wine-red); font-size: 30pt; line-height: 1.05; margin-bottom: 6px;">
+                STATEFUL SESSION MOORE MACHINE
+            </h1>
+            <p class="canva-body" style="color: var(--text-dark-secondary); font-size: 10.2pt; margin-bottom: 10px;">
+                While the baseline DFA inspects isolated log records, distributed attacks like password spraying and credential brute-forcing exploit temporal patterns across multiple requests. We model multi-event session state via a formal 6-tuple Moore Machine: M_moore = (S, &Sigma;_in, &Lambda;, T, G, s0).
+            </p>
+        </div>
+
+        <!-- Moore Machine Topology Diagram SVG -->
+        <div class="cream-card" style="padding: 12px 16px; border: 1.5px solid rgba(128, 24, 24, 0.25);">
+            <div style="text-align: center; margin-bottom: 6px;">
+                <span style="font-family: 'Cinzel'; font-size: 8.5pt; color: var(--wine-red); letter-spacing: 2px; text-transform: uppercase; font-weight: bold;">
+                    FIGURE 7: 4-STATE MOORE SESSION TRANSDUCER TOPOLOGY WITH THRESHOLD ESCALATION
+                </span>
+            </div>
+            <svg viewBox="0 0 680 125" style="width: 100%; height: 110px; display: block;">
+                <!-- s0: Normal -->
+                <circle cx="70" cy="50" r="24" fill="#F7F2EA" stroke="#38A169" stroke-width="2.5" />
+                <text x="70" y="47" text-anchor="middle" fill="#22543D" font-family="JetBrains Mono" font-size="9" font-weight="bold">s0</text>
+                <text x="70" y="60" text-anchor="middle" fill="#38A169" font-size="7.5">OK (0)</text>
+
+                <!-- Transition s0 -> s1 (FAIL_1) -->
+                <line x1="94" y1="50" x2="196" y2="50" stroke="#C59F7A" stroke-width="2" />
+                <text x="145" y="42" text-anchor="middle" fill="#801818" font-family="JetBrains Mono" font-size="7.5">FAIL</text>
+
+                <!-- s1: Warn -->
+                <circle cx="220" cy="50" r="24" fill="#F7F2EA" stroke="#D69E2E" stroke-width="2.5" />
+                <text x="220" y="47" text-anchor="middle" fill="#744210" font-family="JetBrains Mono" font-size="9" font-weight="bold">s1</text>
+                <text x="220" y="60" text-anchor="middle" fill="#D69E2E" font-size="7.5">WARN (1)</text>
+
+                <!-- Transition s1 -> s2 (FAIL_2) -->
+                <line x1="244" y1="50" x2="346" y2="50" stroke="#C59F7A" stroke-width="2" />
+                <text x="295" y="42" text-anchor="middle" fill="#801818" font-family="JetBrains Mono" font-size="7.5">FAIL</text>
+
+                <!-- s2: Alert -->
+                <circle cx="370" cy="50" r="24" fill="#F7F2EA" stroke="#E53E3E" stroke-width="2.5" />
+                <text x="370" y="47" text-anchor="middle" fill="#9B2C2C" font-family="JetBrains Mono" font-size="9" font-weight="bold">s2</text>
+                <text x="370" y="60" text-anchor="middle" fill="#E53E3E" font-size="7.5">ALERT (2)</text>
+
+                <!-- Transition s2 -> s3 (FAIL_3) -->
+                <line x1="394" y1="50" x2="496" y2="50" stroke="#801818" stroke-width="2.5" />
+                <text x="445" y="42" text-anchor="middle" fill="#801818" font-family="JetBrains Mono" font-size="8" font-weight="bold">FAIL &ge; 3</text>
+
+                <!-- s3: Flag Attack (Double Circle Red) -->
+                <circle cx="520" cy="50" r="24" fill="#801818" stroke="#801818" stroke-width="2" />
+                <circle cx="520" cy="50" r="19" fill="#801818" stroke="#FFF" stroke-width="1.5" />
+                <text x="520" y="47" text-anchor="middle" fill="#FFF" font-family="JetBrains Mono" font-size="9" font-weight="bold">s3</text>
+                <text x="520" y="60" text-anchor="middle" fill="#DFC4A8" font-size="7.5">FLAG</text>
+
+                <!-- SUCCESS Reset Arcs back to s0 -->
+                <path d="M 220 74 Q 145 105 70 74" fill="none" stroke="#38A169" stroke-width="1.8" stroke-dasharray="3,3" />
+                <text x="145" y="100" text-anchor="middle" fill="#22543D" font-family="JetBrains Mono" font-size="7">SUCCESS (200) &rarr; Reset to s0</text>
+            </svg>
+        </div>
+
+        <!-- Table 5: Moore Machine Output Table -->
+        <div class="luxury-table-container">
+            <div style="padding: 7px 14px; background: var(--wine-red); color: #FFF;">
+                <span style="font-family: 'Cinzel'; font-size: 8.2pt; font-weight: bold; letter-spacing: 1.5px;">
+                    TABLE 5: MOORE TRANSDUCER STATE-OUTPUT MAPPING G(s) &amp; ACTION MATRIX
+                </span>
+            </div>
+            <table class="luxury-table" style="font-size: 8.2pt;">
+                <thead>
+                    <tr>
+                        <th style="padding:6px 12px;">State (s)</th>
+                        <th style="padding:6px 12px;">Fail Count</th>
+                        <th style="padding:6px 12px;">Output Symbol &Lambda;</th>
+                        <th style="padding:6px 12px;">Automaton Output Action</th>
+                        <th style="padding:6px 12px;">Latency Impact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding:6px 12px; font-weight:bold;">s0 (Baseline)</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono';">0</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#2E8540; font-weight:bold;">STATUS_NORMAL</td>
+                        <td style="padding:6px 12px;">Forward immediately to Local Log Store.</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#2E8540;">+0.12 &mu;s</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:6px 12px; font-weight:bold;">s1 (Suspicious)</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono';">1</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#B7791F; font-weight:bold;">STATUS_WARNING</td>
+                        <td style="padding:6px 12px;">Log failure event; increment IP temporal sliding window counter.</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#2E8540;">+0.14 &mu;s</td>
+                    </tr>
+                    <tr>
+                        <td style="padding:6px 12px; font-weight:bold;">s2 (Threshold Alert)</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono';">2</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#C53030; font-weight:bold;">STATUS_ELEVATED</td>
+                        <td style="padding:6px 12px;">Prepare ring buffer slot; enable high-resolution telemetry trace.</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#2E8540;">+0.18 &mu;s</td>
+                    </tr>
+                    <tr style="background: rgba(128, 24, 24, 0.1);">
+                        <td style="padding:6px 12px; font-weight:bold; color:var(--wine-red);">s3 (Attack Confirmed)</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono';">&ge; 3</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:var(--wine-red); font-weight:bold;">FLAG_BRUTE_FORCE</td>
+                        <td style="padding:6px 12px; font-weight:bold;">Escalate to Turing Tape Sanitizer &rarr; Trigger Neural LLM Triage.</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:var(--wine-red);">+0.80 &mu;s</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Lower Section: Per-IP Session Hash Table + Sliding Window Eviction Card -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="cream-card" style="padding: 12px 16px; border-left: 4px solid var(--wine-red);">
+                <div style="font-family: 'Cinzel'; font-size: 8pt; color: var(--wine-red); font-weight: bold; margin-bottom: 3px;">
+                    O(1) SPATIAL PARTITIONING
+                </div>
+                <div style="font-size: 8.2pt; color: var(--text-dark-secondary); line-height: 1.5;">
+                    The Moore machine maintains state per unique IP address using a lock-free robin-hood hash table. Sessions are automatically purged after 300 seconds of inactivity, maintaining a strictly bounded memory ceiling of 48 bytes per active IP session.
+                </div>
+            </div>
+            <div class="cream-card" style="padding: 12px 16px; border-left: 4px solid var(--gold-dim);">
+                <div style="font-family: 'Cinzel'; font-size: 8pt; color: var(--wine-red); font-weight: bold; margin-bottom: 3px;">
+                    MULTI-THREAD CONCURRENCY
+                </div>
+                <div style="font-size: 8.2pt; color: var(--text-dark-secondary); line-height: 1.5;">
+                    Partitioned across 16 hash buckets with atomic CAS (Compare-And-Swap) updates, achieving zero cross-thread locking contention during 100k EPS multi-core ingestion benchmarks.
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="canva-bottom-bar-cream"><span>STATEFUL SESSION TRACKING</span><span>SECTION 3.2 • MOORE MACHINE TRANSDUCER</span></div>
+</section>

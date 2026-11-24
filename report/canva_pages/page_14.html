@@ -1,0 +1,142 @@
+<section class="page theme-dark">
+    <div class="canva-top-header"><span>THREAT TAXONOMY</span><span>EMPIRICAL DETECTION DISTRIBUTION</span></div>
+    <div class="page-content" style="padding-top: 6mm; padding-bottom: 6mm; gap: 14px;">
+        
+        <div>
+            <div class="gold-eyebrow">ATTACK VECTOR CLASSIFICATION</div>
+            <h1 class="canva-title" style="font-size: 34pt; line-height: 1.05; margin-bottom: 6px;">
+                THREAT TAXONOMY &amp;<br>ATTACK DISTRIBUTION
+            </h1>
+            <p class="canva-body" style="font-size: 10.2pt; color: var(--text-cream-dim); max-width: 95%; margin-bottom: 8px;">
+                This section presents the empirical distribution of telemetry attack vectors captured during stress testing across 1,000,000 simulated authentication events, demonstrating how each threat class is partitioned between automata and neural lanes.
+            </p>
+        </div>
+
+        <!-- Giant Solid Crimson Block (1:1 Canva Layout 3 Aesthetic!) -->
+        <div class="canva-red-block" style="flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+                <h3 style="font-family: 'Cinzel', serif; font-size: 12pt; color: #FFFFFF; letter-spacing: 2px; text-transform: uppercase; font-weight: bold; margin-bottom: 10px;">
+                    TELEMETRY ATTACK VECTOR CONTRIBUTION &amp; DETECTION ACCURACY
+                </h3>
+
+                <!-- Legend with colored circles matching Canva template -->
+                <div style="display: flex; gap: 18px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #FFFFFF;"></div>
+                        <span style="font-size: 8.2pt; color: #FFF;">Routine Benign (10%)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #E8DCC4;"></div>
+                        <span style="font-size: 8.2pt; color: #FFF;">Auth Spikes (12%)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #C53030;"></div>
+                        <span style="font-size: 8.2pt; color: #FFF;">Privilege Escalation (18%)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #4A0E0E;"></div>
+                        <span style="font-size: 8.2pt; color: #FFF;">SQLi / Injection (26%)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 6px;">
+                        <div style="width: 12px; height: 12px; border-radius: 50%; background: #1A0808;"></div>
+                        <span style="font-size: 8.2pt; color: #FFF;">Brute-Force &amp; Spraying (34%)</span>
+                    </div>
+                </div>
+
+                <!-- Chunky Horizontal Stacked Bar Chart (Taller & Thicker Bars) -->
+                <svg viewBox="0 0 620 200" style="width: 100%; height: 185px; display: block; margin: 4px 0;">
+                    <!-- Grid Lines -->
+                    <line x1="50" y1="10" x2="50" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+                    <line x1="130" y1="10" x2="130" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                    <line x1="210" y1="10" x2="210" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                    <line x1="290" y1="10" x2="290" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                    <line x1="370" y1="10" x2="370" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                    <line x1="450" y1="10" x2="450" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                    <line x1="530" y1="10" x2="530" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                    <line x1="610" y1="10" x2="610" y2="165" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="2,2" />
+                    <line x1="50" y1="165" x2="610" y2="165" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" />
+
+                    <!-- Chunky Bars (Height = 24px each) -->
+                    <!-- Bar 1: Routine Benign (10%) -->
+                    <rect x="50" y="8" width="160" height="24" rx="5" fill="#FFFFFF" />
+                    <text x="218" y="24" fill="#FFF" font-family="JetBrains Mono" font-size="8.5" font-weight="bold">10.0% &bull; Acc: 99.98%</text>
+
+                    <!-- Bar 2: Auth Spikes (12%) -->
+                    <rect x="50" y="38" width="192" height="24" rx="5" fill="#E8DCC4" />
+                    <text x="250" y="54" fill="#FFF" font-family="JetBrains Mono" font-size="8.5" font-weight="bold">12.0% &bull; Acc: 99.85%</text>
+
+                    <!-- Bar 3: Privilege Escalation (18%) -->
+                    <rect x="50" y="68" width="288" height="24" rx="5" fill="#C53030" stroke="#FFF" stroke-width="0.8" />
+                    <text x="346" y="84" fill="#FFF" font-family="JetBrains Mono" font-size="8.5" font-weight="bold">18.0% &bull; Acc: 98.92%</text>
+
+                    <!-- Bar 4: SQL Injection (26%) -->
+                    <rect x="50" y="98" width="416" height="24" rx="5" fill="#4A0E0E" stroke="#FFF" stroke-width="0.8" />
+                    <text x="474" y="114" fill="#FFF" font-family="JetBrains Mono" font-size="8.5" font-weight="bold">26.0% &bull; Acc: 99.41%</text>
+
+                    <!-- Bar 5: Brute-Force Spraying (34%) -->
+                    <rect x="50" y="128" width="544" height="24" rx="5" fill="#1A0808" stroke="#FFF" stroke-width="0.8" />
+                    <text x="600" y="144" fill="#FFF" font-family="JetBrains Mono" font-size="8.5" font-weight="bold" text-anchor="end">34.0% &bull; Acc: 99.88%</text>
+
+                    <!-- X-Axis Labels -->
+                    <text x="50" y="180" text-anchor="middle" fill="#E8DCC4" font-size="8" font-family="JetBrains Mono">0%</text>
+                    <text x="130" y="180" text-anchor="middle" fill="#E8DCC4" font-size="8" font-family="JetBrains Mono">5%</text>
+                    <text x="210" y="180" text-anchor="middle" fill="#E8DCC4" font-size="8" font-family="JetBrains Mono">10%</text>
+                    <text x="290" y="180" text-anchor="middle" fill="#E8DCC4" font-size="8" font-family="JetBrains Mono">15%</text>
+                    <text x="370" y="180" text-anchor="middle" fill="#E8DCC4" font-size="8" font-family="JetBrains Mono">20%</text>
+                    <text x="450" y="180" text-anchor="middle" fill="#E8DCC4" font-size="8" font-family="JetBrains Mono">25%</text>
+                    <text x="530" y="180" text-anchor="middle" fill="#E8DCC4" font-size="8" font-family="JetBrains Mono">30%</text>
+                    <text x="610" y="180" text-anchor="middle" fill="#E8DCC4" font-size="8" font-family="JetBrains Mono">35%</text>
+                    <text x="330" y="194" text-anchor="middle" fill="#FFF" font-size="8" font-family="Cinzel">PERCENTAGE OF ANOMALOUS TELEMETRY STREAM (%)</text>
+                </svg>
+
+                <!-- Rich 4-Row Breakdown Table Inside Crimson Block (Filling All Space!) -->
+                <div style="background: rgba(0,0,0,0.3); border-radius: 6px; padding: 10px 14px; margin-top: 8px;">
+                    <table style="width: 100%; border-collapse: collapse; font-size: 8pt; color: #FFF;">
+                        <thead>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.3); text-align: left;">
+                                <th style="padding: 5px 8px;">Threat Vector</th>
+                                <th style="padding: 5px 8px;">Primary Detector</th>
+                                <th style="padding: 5px 8px;">Evaluation Latency</th>
+                                <th style="padding: 5px 8px;">Mitigation Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 5px 8px;"><strong>Brute-Force &amp; Credential Spraying</strong></td>
+                                <td style="padding: 5px 8px;">Moore Machine (m3)</td>
+                                <td style="padding: 5px 8px; font-family:'JetBrains Mono';">0.80 &mu;s</td>
+                                <td style="padding: 5px 8px;">IP Blacklisting via Border Firewall</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 5px 8px;"><strong>SQL Injection &amp; XSS Payloads</strong></td>
+                                <td style="padding: 5px 8px;">DFA Syntax Trap (qE)</td>
+                                <td style="padding: 5px 8px; font-family:'JetBrains Mono';">1.45 &mu;s</td>
+                                <td style="padding: 5px 8px;">Turing Sanitization &rarr; WAF Drop</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 5px 8px;"><strong>Privilege Escalation Anomalies</strong></td>
+                                <td style="padding: 5px 8px;">Gemini 2.5 Flash Oracle</td>
+                                <td style="padding: 5px 8px; font-family:'JetBrains Mono';">840 ms</td>
+                                <td style="padding: 5px 8px;">Session Revocation &amp; SOC Page</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 5px 8px;"><strong>Directory Traversal (../../etc/passwd)</strong></td>
+                                <td style="padding: 5px 8px;">DFA Lexer Reject</td>
+                                <td style="padding: 5px 8px; font-family:'JetBrains Mono';">0.35 &mu;s</td>
+                                <td style="padding: 5px 8px;">Instant Edge Socket Termination</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div style="background: rgba(0,0,0,0.25); border-radius: 6px; padding: 8px 14px; margin-top: 6px;">
+                <p style="font-size: 8.2pt; color: #FFF; line-height: 1.45; text-align: center;">
+                    <strong>Overall System Accuracy: 99.61%</strong> &bull; Zero ReDoS vulnerability &bull; 0.12% False Positive Rate across 1,000,000 stress events.
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <div class="canva-bottom-bar-cream"><span>THREAT TAXONOMY & PERFORMANCE</span><span>SECTION 5.1 • ATTACK VECTOR METRICS</span></div>
+</section>

@@ -1,0 +1,81 @@
+<section class="page theme-dark">
+    <div class="canva-top-header"><span>NEURAL ESCALATION</span><span>BOUNDED RING BUFFER &amp; ASYNCHRONOUS ORACLE</span></div>
+    <div class="page-content" style="padding-top: 6mm; padding-bottom: 6mm; gap: 14px;">
+        
+        <div>
+            <div class="gold-eyebrow">ASYNC CLOUD INTEGRATION</div>
+            <h1 class="canva-title" style="font-size: 28pt; line-height: 1.05; margin-bottom: 6px;">
+                NEURAL ESCALATION ARCHITECTURE
+            </h1>
+            <p class="canva-body" style="font-size: 10pt; color: var(--text-cream-dim); max-width: 95%; margin-bottom: 10px;">
+                When the deterministic DFA traps a log line into state qE, or the Moore machine flags a brute-force pattern at state s3, the event escalates into an asynchronous producer-consumer ring buffer (capacity K = 1,000) for batch LLM triage via non-blocking libcurl worker threads.
+            </p>
+        </div>
+
+        <!-- 2-Column Split: Buffer Mechanics & JSON Schema Contract -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; flex: 1; align-items: stretch;">
+            
+            <!-- Left: Ring Buffer & Backpressure Controls -->
+            <div class="dark-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 16px 18px; border-top: 4px solid var(--wine-red);">
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 13pt; color: var(--gold-light); margin-bottom: 8px;">
+                        Bounded Buffer (K = 1,000) Mechanics
+                    </h3>
+                    <p style="font-size: 8.6pt; color: var(--text-cream-dim); line-height: 1.6; margin-bottom: 10px;">
+                        During distributed DDoS storms, an attacker might deliberately inject thousands of syntax errors to flood the neural lane. Without bounded queuing, server memory would quickly exhaust.
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 8px;">
+                        <div style="background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 4px; border-left: 2px solid var(--gold);">
+                            <strong style="color:var(--gold-light); font-size:8.2pt;">Lock-Free Circular Queue:</strong>
+                            <div style="font-size:7.8pt; color:var(--text-cream-dim);">Atomic head/tail pointers eliminate thread lock contention under 100k EPS load.</div>
+                        </div>
+                        <div style="background: rgba(0,0,0,0.3); padding: 8px 12px; border-radius: 4px; border-left: 2px solid var(--wine-red);">
+                            <strong style="color:#FFB2B2; font-size:8.2pt;">Selective Tail Drop:</strong>
+                            <div style="font-size:7.8pt; color:var(--text-cream-dim);">If queue capacity K reaches 1,000, oldest entries are aggregated into statistical summaries, protecting host RAM.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: #1C0C0B; padding: 10px 12px; border-radius: 4px; border: 1px solid var(--border-gold); margin-top: 8px;">
+                    <span style="font-family:'JetBrains Mono'; font-size:7.6pt; color:#68D391;">
+                        Fixed Memory Footprint: K &times; 512B = 512 KB Maximum RSS
+                    </span>
+                </div>
+            </div>
+
+            <!-- Right: Structured JSON Schema Contract -->
+            <div class="dark-card" style="display: flex; flex-direction: column; justify-content: space-between; padding: 16px 18px; border-top: 4px solid var(--gold);">
+                <div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 13pt; color: var(--gold-light); margin-bottom: 8px;">
+                        JSON Telemetry Protocol Contract
+                    </h3>
+                    <p style="font-size: 8.4pt; color: var(--text-cream-dim); line-height: 1.55; margin-bottom: 8px;">
+                        Google Gemini 2.5 Flash is invoked using strict JSON Schema enforcement. The prompt provides automata trace metadata, guaranteeing machine-parseable forensic triage:
+                    </p>
+                    <pre style="background: #150A0A; border: 1px solid var(--border-gold); border-radius: 4px; padding: 10px; font-family: 'JetBrains Mono', monospace; font-size: 7.2pt; color: #DFC4A8; line-height: 1.45; overflow: hidden;">
+{
+  "event_id": "EVT-904128",
+  "dfa_state": "qE_SYNTAX_TRAP",
+  "moore_state": "s3_BRUTE_FORCE",
+  "sanitized_payload": "USER=admin PASS=XXXXXX",
+  "escalation_reason": "UNEXPECTED_OTHER_TOKEN",
+  "forensic_inference": {
+    "threat_type": "CREDENTIAL_STUFFING",
+    "confidence_score": 0.982,
+    "recommended_action": "BLOCK_IP_CIDR"
+  }
+}</pre>
+                </div>
+
+                <div style="background: rgba(128, 24, 24, 0.2); padding: 8px 12px; border-radius: 4px; border-left: 2px solid var(--wine-red); margin-top: 6px;">
+                    <span style="font-size:7.6pt; color:#FFB2B2;">
+                        Non-blocking libcurl multi-socket transfers prevent main worker threads from stalling during cloud network latency.
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="canva-bottom-bar"><span>NEURAL ESCALATION ARCHITECTURE</span><span>SECTION 4.2 • BUFFER & JSON SCHEMA</span></div>
+</section>
