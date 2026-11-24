@@ -1,25 +1,25 @@
 <section class="page theme-cream">
     <div class="canva-top-header"><span>SYMBOLIC FAST-PATH</span><span>LEXICAL TOKENIZER SPECIFICATION</span></div>
-    <div class="page-content" style="padding-top: 6mm; padding-bottom: 6mm; gap: 14px;">
+    <div class="page-content" style="padding-top: 5mm; padding-bottom: 4mm; gap: 12px;">
         
         <div>
             <div class="gold-eyebrow" style="color: var(--wine-red);">LEXICAL SPECIFICATION</div>
             <h1 class="canva-title" style="color: var(--wine-red); font-size: 30pt; line-height: 1.05; margin-bottom: 6px;">
                 LEXER TOKEN GRAMMAR
             </h1>
-            <p class="canva-body" style="color: var(--text-dark-secondary); font-size: 10.2pt; margin-bottom: 10px;">
+            <p class="canva-body" style="color: var(--text-dark-secondary); font-size: 10pt; margin-bottom: 10px;">
                 Before automata state evaluation occurs, the raw ASCII telemetry stream is tokenized by an in-line lexical scanner into a compact five-symbol alphabet &Sigma; = {LEVEL, IP, USER, STATUS, OTHER}. The scanner relies entirely on C++14 <code>std::string_view</code> slices to achieve zero dynamic memory allocations.
             </p>
         </div>
 
         <!-- Table 3: Token Grammar Definitions -->
         <div class="luxury-table-container">
-            <div style="padding: 8px 14px; background: var(--wine-red); color: #FFF;">
+            <div style="padding: 7px 14px; background: var(--wine-red); color: #FFF;">
                 <span style="font-family: 'Cinzel'; font-size: 8.5pt; font-weight: bold; letter-spacing: 1.5px;">
                     TABLE 3: FORMAL TOKEN RECOGNITION GRAMMAR &amp; EXTRACTION RULES
                 </span>
             </div>
-            <table class="luxury-table" style="font-size: 8.2pt;">
+            <table class="luxury-table" style="font-size: 8.6pt;">
                 <thead>
                     <tr>
                         <th style="padding:7px 12px;">Token Symbol (&sigma;)</th>
@@ -64,32 +64,32 @@
         </div>
 
         <!-- Lower Section: Implementation Details Card -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-            <div class="cream-card" style="padding: 14px 18px; border-left: 4px solid var(--wine-red);">
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 12pt; color: var(--wine-red); margin-bottom: 6px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="cream-card" style="padding: 12px 16px; border-left: 4px solid var(--wine-red);">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 12pt; color: var(--wine-red); margin-bottom: 5px;">
                     Zero-Allocation Memory Architecture
                 </h3>
-                <p style="font-size: 8.6pt; color: var(--text-dark-secondary); line-height: 1.58;">
+                <p style="font-size: 8.8pt; color: var(--text-dark-secondary); line-height: 1.58; margin: 0;">
                     Conventional log parsers allocate heap memory for each parsed substring, incurring severe garbage-collection pauses and heap fragmentation under 100k EPS loads. Our C++14 implementation utilizes non-owning <code>std::string_view</code> pointers over pre-allocated ring-buffer pages, achieving <strong>0 heap allocations</strong> during normal operation.
                 </p>
             </div>
 
-            <div class="cream-card" style="padding: 14px 18px; border-left: 4px solid var(--gold-dim);">
-                <h3 style="font-family: 'Playfair Display', serif; font-size: 12pt; color: var(--wine-red); margin-bottom: 6px;">
+            <div class="cream-card" style="padding: 12px 16px; border-left: 4px solid var(--gold-dim);">
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 12pt; color: var(--wine-red); margin-bottom: 5px;">
                     Deterministic Scanner Complexity
                 </h3>
-                <p style="font-size: 8.6pt; color: var(--text-dark-secondary); line-height: 1.58;">
+                <p style="font-size: 8.8pt; color: var(--text-dark-secondary); line-height: 1.58; margin: 0;">
                     The lexical scanner executes in strict single-pass linear time: T(N) &le; c &times; N, where c is a small constant (approx 14 CPU instructions per character). Even malformed input payloads with millions of consecutive punctuation marks complete in deterministic time without stalling worker threads.
                 </p>
             </div>
         </div>
 
-        <!-- Bottom Card: Concrete Token Extraction Pipeline Trace (Eliminating Gaps!) -->
-        <div class="cream-card" style="padding: 12px 18px; background: #FFF; border: 1px solid rgba(128, 24, 24, 0.2);">
-            <div style="font-family: 'Cinzel'; font-size: 8.2pt; color: var(--wine-red); font-weight: bold; margin-bottom: 4px;">
+        <!-- Bottom Card: Concrete Token Extraction Pipeline Trace -->
+        <div class="cream-card" style="padding: 12px 18px; background: #FFF; border: 1.5px solid rgba(128, 24, 24, 0.25);">
+            <div style="font-family: 'Cinzel'; font-size: 8.5pt; color: var(--wine-red); font-weight: bold; margin-bottom: 4px;">
                 CONCRETE SCANNER EXECUTION TRACE EXAMPLE
             </div>
-            <div style="font-family: 'JetBrains Mono'; font-size: 7.8pt; color: var(--text-dark); line-height: 1.5;">
+            <div style="font-family: 'JetBrains Mono'; font-size: 8.4pt; color: var(--text-dark); line-height: 1.52;">
                 <strong>Input String:</strong> <code>"2026-11-24T12:00:00Z WARN 192.168.1.10 admin 401 Unauthorized"</code><br>
                 <strong>Extracted Stream:</strong> <code>[&sigma;1: LEVEL("WARN"), &sigma;2: IP("192.168.1.10"), &sigma;3: USER("admin"), &sigma;4: STATUS("401")]</code> &bull; Offset: 0 to 68 bytes &bull; <strong>Time: 0.35 &mu;s</strong>
             </div>

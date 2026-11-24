@@ -1,90 +1,97 @@
 <section class="page theme-dark">
     <div class="canva-top-header"><span>ENGINE ARCHITECTURE</span><span>DUAL-LANE NEURO-SYMBOLIC BLUEPRINT</span></div>
-    <div class="page-content" style="padding-top: 5mm; padding-bottom: 5mm; gap: 12px;">
+    <div class="page-content" style="padding-top: 5mm; padding-bottom: 4mm; gap: 12px;">
         
         <div>
             <div class="gold-eyebrow">SYSTEM BLUEPRINT</div>
             <h1 class="canva-title" style="font-size: 28pt; margin-bottom: 2mm;">
                 DUAL-LANE ENGINE BLUEPRINT
             </h1>
-            <div class="gold-separator-line" style="margin: 6px 0 10px 0;"></div>
+            <div class="gold-separator-line" style="margin: 4px 0 8px 0;"></div>
         </div>
 
-        <!-- Upper: Full-Width End-to-End Pipeline SVG -->
+        <!-- Upper: Full-Width End-to-End Pipeline SVG (Large Legible Nodes & Clear Arrows) -->
         <div class="dark-card" style="padding: 12px 16px; background: #231211;">
             <div style="text-align: center; margin-bottom: 6px;">
-                <span style="font-family: 'Cinzel', serif; font-size: 8.5pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: bold;">
+                <span style="font-family: 'Cinzel', serif; font-size: 8.8pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: bold;">
                     FIGURE 4: UNIFIED HYBRID AUTOMATA &amp; NEURAL ESCALATION TOPOLOGY
                 </span>
             </div>
-            <svg viewBox="0 0 680 175" style="width: 100%; height: 155px; display: block;">
+            <svg viewBox="0 0 680 155" style="width: 100%; height: 145px; display: block;">
                 <!-- Node 1: Raw Log -->
-                <rect x="10" y="62" width="85" height="48" rx="5" fill="#1C0C0B" stroke="#8F7255" stroke-width="1.8" />
-                <text x="52" y="83" text-anchor="middle" fill="#DFC4A8" font-family="Cinzel" font-size="8.5" font-weight="bold">RAW LOG</text>
-                <text x="52" y="98" text-anchor="middle" fill="#9E8C82" font-size="7.5">100k+ eps</text>
+                <rect x="10" y="52" width="90" height="52" rx="6" fill="#1C0C0B" stroke="#8F7255" stroke-width="2" />
+                <text x="55" y="74" text-anchor="middle" fill="#DFC4A8" font-family="Cinzel" font-size="11" font-weight="bold">RAW LOG</text>
+                <text x="55" y="92" text-anchor="middle" fill="#9E8C82" font-family="JetBrains Mono" font-size="9.5">100k+ eps</text>
 
                 <!-- Arrow 1 -> 2 -->
-                <line x1="95" y1="86" x2="120" y2="86" stroke="#C59F7A" stroke-width="2" />
+                <line x1="100" y1="78" x2="128" y2="78" stroke="#C59F7A" stroke-width="2.5" />
+                <polygon points="128,74 136,78 128,82" fill="#C59F7A" />
 
                 <!-- Node 2: Lexer -->
-                <rect x="120" y="62" width="100" height="48" rx="5" fill="#1C0C0B" stroke="#8F7255" stroke-width="1.8" />
-                <text x="170" y="83" text-anchor="middle" fill="#DFC4A8" font-family="Cinzel" font-size="8.5" font-weight="bold">POSIX LEXER</text>
-                <text x="170" y="98" text-anchor="middle" fill="#68D391" font-family="JetBrains Mono" font-size="7">5 Token Types</text>
+                <rect x="136" y="52" width="105" height="52" rx="6" fill="#1C0C0B" stroke="#8F7255" stroke-width="2" />
+                <text x="188" y="74" text-anchor="middle" fill="#DFC4A8" font-family="Cinzel" font-size="11" font-weight="bold">POSIX LEXER</text>
+                <text x="188" y="92" text-anchor="middle" fill="#68D391" font-family="JetBrains Mono" font-size="9.5">5 Token Types</text>
 
                 <!-- Arrow 2 -> 3 -->
-                <line x1="220" y1="86" x2="245" y2="86" stroke="#C59F7A" stroke-width="2" />
+                <line x1="241" y1="78" x2="268" y2="78" stroke="#C59F7A" stroke-width="2.5" />
+                <polygon points="268,74 276,78 268,82" fill="#C59F7A" />
 
                 <!-- Node 3: DFA Engine -->
-                <rect x="245" y="52" width="115" height="68" rx="6" fill="#801818" stroke="#C59F7A" stroke-width="2.2" />
-                <text x="302" y="75" text-anchor="middle" fill="#FFF" font-family="Cinzel" font-size="9.5" font-weight="bold">DFA ENGINE</text>
-                <text x="302" y="90" text-anchor="middle" fill="#DFC4A8" font-size="7.5">Table 3 Matrix</text>
-                <text x="302" y="105" text-anchor="middle" fill="#68D391" font-family="JetBrains Mono" font-size="7.5" font-weight="bold">q0..q4 / qE</text>
+                <rect x="276" y="42" width="125" height="72" rx="6" fill="#801818" stroke="#C59F7A" stroke-width="2.5" />
+                <text x="338" y="66" text-anchor="middle" fill="#FFF" font-family="Cinzel" font-size="12" font-weight="bold">DFA ENGINE</text>
+                <text x="338" y="83" text-anchor="middle" fill="#DFC4A8" font-size="9.5">Table 3 Matrix</text>
+                <text x="338" y="100" text-anchor="middle" fill="#68D391" font-family="JetBrains Mono" font-size="9.5" font-weight="bold">q0..q4 / qE</text>
 
                 <!-- Accept Path: Upwards to Moore -->
-                <path d="M 360 72 L 395 72 L 395 35 L 420 35" fill="none" stroke="#38A169" stroke-width="2" />
-                <text x="395" y="55" text-anchor="middle" fill="#68D391" font-family="JetBrains Mono" font-size="7" font-weight="bold">ACCEPT</text>
+                <path d="M 401 64 L 430 64 L 430 30 L 452 30" fill="none" stroke="#38A169" stroke-width="2.5" />
+                <polygon points="452,26 460,30 452,34" fill="#38A169" />
+                <text x="430" y="50" text-anchor="middle" fill="#68D391" font-family="JetBrains Mono" font-size="9" font-weight="bold">ACCEPT</text>
 
                 <!-- Node 4: Moore Machine -->
-                <rect x="420" y="14" width="115" height="42" rx="5" fill="#1C0C0B" stroke="#38A169" stroke-width="1.8" />
-                <text x="477" y="32" text-anchor="middle" fill="#68D391" font-family="Cinzel" font-size="8.5" font-weight="bold">MOORE FSM</text>
-                <text x="477" y="46" text-anchor="middle" fill="#9E8C82" font-size="7">m0..m3 Per-IP</text>
+                <rect x="460" y="10" width="105" height="44" rx="6" fill="#1C0C0B" stroke="#38A169" stroke-width="2" />
+                <text x="512" y="28" text-anchor="middle" fill="#68D391" font-family="Cinzel" font-size="10.5" font-weight="bold">MOORE FSM</text>
+                <text x="512" y="44" text-anchor="middle" fill="#9E8C82" font-family="JetBrains Mono" font-size="9">m0..m3 Per-IP</text>
 
                 <!-- Moore OK -> Local Store -->
-                <line x1="535" y1="35" x2="575" y2="35" stroke="#38A169" stroke-width="2" />
-                <rect x="575" y="14" width="95" height="42" rx="5" fill="#152418" stroke="#38A169" stroke-width="1.8" />
-                <text x="622" y="32" text-anchor="middle" fill="#68D391" font-family="Cinzel" font-size="8.5" font-weight="bold">LOCAL STORE</text>
-                <text x="622" y="46" text-anchor="middle" fill="#A0AEC0" font-size="7">1.8 &mu;s &bull; $0.00 Cost</text>
+                <line x1="565" y1="32" x2="585" y2="32" stroke="#38A169" stroke-width="2" />
+                <polygon points="585,28 593,32 585,36" fill="#38A169" />
+                <rect x="593" y="10" width="80" height="44" rx="6" fill="#152418" stroke="#38A169" stroke-width="2" />
+                <text x="633" y="28" text-anchor="middle" fill="#68D391" font-family="Cinzel" font-size="10" font-weight="bold">LOCAL STORE</text>
+                <text x="633" y="44" text-anchor="middle" fill="#A0AEC0" font-family="JetBrains Mono" font-size="8.5">1.8 &mu;s &bull; $0</text>
 
                 <!-- Reject & Flag Paths to Turing Sanitizer -->
-                <path d="M 360 102 L 415 102 L 415 138 L 435 138" fill="none" stroke="#E53E3E" stroke-width="2" />
-                <text x="395" y="115" text-anchor="middle" fill="#FEB2B2" font-family="JetBrains Mono" font-size="7" font-weight="bold">REJECT (qE)</text>
+                <path d="M 401 95 L 430 95 L 430 126 L 452 126" fill="none" stroke="#E53E3E" stroke-width="2.5" />
+                <polygon points="452,122 460,126 452,130" fill="#E53E3E" />
+                <text x="430" y="112" text-anchor="middle" fill="#FEB2B2" font-family="JetBrains Mono" font-size="8.5" font-weight="bold">REJECT</text>
 
-                <path d="M 477 56 L 477 112" fill="none" stroke="#E53E3E" stroke-width="2" />
-                <text x="492" y="86" text-anchor="middle" fill="#FEB2B2" font-family="JetBrains Mono" font-size="7" font-weight="bold">FLAG</text>
+                <path d="M 512 54 L 512 104" fill="none" stroke="#E53E3E" stroke-width="2" stroke-dasharray="3,3" />
+                <polygon points="508,104 512,112 516,104" fill="#E53E3E" />
+                <text x="526" y="80" fill="#FEB2B2" font-family="JetBrains Mono" font-size="8.5" font-weight="bold">FLAG</text>
 
                 <!-- Node 5: Turing Sanitizer -->
-                <rect x="435" y="112" width="125" height="48" rx="5" fill="#421212" stroke="#E53E3E" stroke-width="2" />
-                <text x="497" y="132" text-anchor="middle" fill="#FFF" font-family="Cinzel" font-size="8.5" font-weight="bold">7-TUPLE TM SANITIZER</text>
-                <text x="497" y="147" text-anchor="middle" fill="#FFBABA" font-size="7">Masks Passwords with 'X'</text>
+                <rect x="460" y="106" width="118" height="44" rx="6" fill="#421212" stroke="#E53E3E" stroke-width="2" />
+                <text x="519" y="125" text-anchor="middle" fill="#FFF" font-family="Cinzel" font-size="9.5" font-weight="bold">7-TUPLE TM</text>
+                <text x="519" y="141" text-anchor="middle" fill="#FFBABA" font-family="JetBrains Mono" font-size="8.5">Masks Password</text>
 
                 <!-- Arrow to Neural Escalation -->
-                <line x1="560" y1="136" x2="585" y2="136" stroke="#E53E3E" stroke-width="2" />
+                <line x1="578" y1="128" x2="598" y2="128" stroke="#E53E3E" stroke-width="2.5" />
+                <polygon points="598,124 606,128 598,132" fill="#E53E3E" />
 
                 <!-- Node 6: Neural LLM -->
-                <rect x="585" y="112" width="85" height="48" rx="5" fill="#1C0C0B" stroke="#E53E3E" stroke-width="1.8" />
-                <text x="627" y="132" text-anchor="middle" fill="#FF6B6B" font-family="Cinzel" font-size="8.5" font-weight="bold">LLM API</text>
-                <text x="627" y="147" text-anchor="middle" fill="#DFC4A8" font-size="7">Queue K=1k</text>
+                <rect x="606" y="106" width="67" height="44" rx="6" fill="#1C0C0B" stroke="#E53E3E" stroke-width="2" />
+                <text x="639" y="125" text-anchor="middle" fill="#FF6B6B" font-family="Cinzel" font-size="10" font-weight="bold">LLM API</text>
+                <text x="639" y="141" text-anchor="middle" fill="#DFC4A8" font-family="JetBrains Mono" font-size="8.5">Queue K=1k</text>
             </svg>
         </div>
 
         <!-- Center: 5-Stage Execution & Latency Profile Table -->
         <div class="luxury-table-container">
             <div style="padding: 7px 14px; background: #261211; border-bottom: 1.5px solid var(--border-gold);">
-                <span style="font-family: 'Cinzel'; font-size: 8.2pt; color: var(--gold-light); font-weight: bold;">
+                <span style="font-family: 'Cinzel'; font-size: 8.5pt; color: var(--gold-light); font-weight: bold;">
                     TABLE 2: END-TO-END TELEMETRY EXECUTION PROFILE ACROSS 5 AUTOMATA STAGES
                 </span>
             </div>
-            <table class="luxury-table" style="font-size: 8pt;">
+            <table class="luxury-table" style="font-size: 8.6pt;">
                 <thead>
                     <tr>
                         <th style="padding:6px 12px;">Stage &bull; Component</th>
@@ -98,35 +105,35 @@
                     <tr>
                         <td style="padding:6px 12px;"><strong>Stage 1: Lexer Scanner</strong></td>
                         <td style="padding:6px 12px;">POSIX Regular Grammar</td>
-                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#68D391;">0.35 &mu;s</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#68D391; font-weight:bold;">0.35 &mu;s</td>
                         <td style="padding:6px 12px;">0 Bytes (std::string_view)</td>
                         <td style="padding:6px 12px;">Tokenizes &Sigma; = {LEVEL, IP, USER, STATUS, OTHER}</td>
                     </tr>
                     <tr>
                         <td style="padding:6px 12px;"><strong>Stage 2: DFA Gatekeeper</strong></td>
                         <td style="padding:6px 12px;">Minimal 6-State DFA</td>
-                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#68D391;">1.45 &mu;s</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#68D391; font-weight:bold;">1.45 &mu;s</td>
                         <td style="padding:6px 12px;">0 Bytes (Contiguous matrix)</td>
                         <td style="padding:6px 12px;">Accepts q4 (95.2% Fast-Path) &bull; Rejects qE to TM</td>
                     </tr>
                     <tr>
                         <td style="padding:6px 12px;"><strong>Stage 3: Moore Session FSM</strong></td>
                         <td style="padding:6px 12px;">4-State Moore Transducer</td>
-                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#68D391;">0.80 &mu;s</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#68D391; font-weight:bold;">0.80 &mu;s</td>
                         <td style="padding:6px 12px;">48 Bytes / active session</td>
                         <td style="padding:6px 12px;">3 consecutive auth failures trigger FLAG_ATTACK (m3)</td>
                     </tr>
                     <tr>
                         <td style="padding:6px 12px;"><strong>Stage 4: Turing Tape Sanitizer</strong></td>
                         <td style="padding:6px 12px;">7-Tuple Deterministic TM</td>
-                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#C59F7A;">2.10 &mu;s</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#C59F7A; font-weight:bold;">2.10 &mu;s</td>
                         <td style="padding:6px 12px;">0 Bytes (In-place buffer)</td>
                         <td style="padding:6px 12px;">Deterministic password/token scrubbing on tape</td>
                     </tr>
                     <tr>
                         <td style="padding:6px 12px;"><strong>Stage 5: Neural LLM Oracle</strong></td>
                         <td style="padding:6px 12px;">Transformer Heuristic LLM</td>
-                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#FF6B6B;">840 ms</td>
+                        <td style="padding:6px 12px; font-family:'JetBrains Mono'; color:#FF6B6B; font-weight:bold;">840 ms</td>
                         <td style="padding:6px 12px;">Bounded Ring Buffer (K=1k)</td>
                         <td style="padding:6px 12px;">Asynchronous forensic intent classification</td>
                     </tr>
@@ -140,7 +147,7 @@
                 <h3 style="font-family: 'Playfair Display', serif; font-size: 11.5pt; color: #68D391; margin-bottom: 5px;">
                     Symbolic Fast-Path Guarantees
                 </h3>
-                <p style="font-size: 8.4pt; color: var(--text-cream-dim); line-height: 1.55;">
+                <p style="font-size: 8.6pt; color: var(--text-cream-dim); line-height: 1.55; margin: 0;">
                     &bull; <strong>Strict Deterministic Time:</strong> Operates at O(N) where N is token stream length. Zero state backtracking eliminates ReDoS exploits.<br>
                     &bull; <strong>Zero Dynamic Allocations:</strong> Evaluates logs using lightweight string views and contiguous transition table offsets.<br>
                     &bull; <strong>Temporal Session Tracking:</strong> Moore machine tracks per-IP authentication failures in an O(1) hash map without cross-IP contention.
@@ -151,7 +158,7 @@
                 <h3 style="font-family: 'Playfair Display', serif; font-size: 11.5pt; color: #FF6B6B; margin-bottom: 5px;">
                     Neural Slow-Path Controls
                 </h3>
-                <p style="font-size: 8.4pt; color: var(--text-cream-dim); line-height: 1.55;">
+                <p style="font-size: 8.6pt; color: var(--text-cream-dim); line-height: 1.55; margin: 0;">
                     &bull; <strong>Deterministic PII Redaction:</strong> Turing machine tape head masks plaintext passwords and auth tokens prior to network egress.<br>
                     &bull; <strong>Bounded Buffer Queue (K=1,000):</strong> Protects system memory from exhaustion during distributed denial-of-service spikes.<br>
                     &bull; <strong>Asynchronous Non-Blocking I/O:</strong> libcurl multi-socket transfers prevent worker thread blocking while querying LLM APIs.
@@ -161,7 +168,7 @@
 
         <!-- Bottom: Architectural Invariant Banner -->
         <div class="dark-card" style="background: #170A09; border: 1px solid var(--border-gold); padding: 8px 12px; text-align: center;">
-            <span style="font-family: 'Cinzel'; font-size: 8pt; color: var(--gold-light); letter-spacing: 1.5px;">
+            <span style="font-family: 'Cinzel'; font-size: 8.2pt; color: var(--gold-light); letter-spacing: 1.5px;">
                 ARCHITECTURAL INVARIANT: NO RAW CREDENTIAL CROSSES THE TRUST BOUNDARY &bull; NO LOG BYPASSES DETERMINISTIC DFA AUDIT
             </span>
         </div>
