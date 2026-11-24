@@ -16,6 +16,7 @@ def b64_img(filename):
 
 corridor_b64 = b64_img("server_corridor.jpg")
 racks_b64 = b64_img("server_racks.jpg")
+jiit_b64 = b64_img("jiit_logo.png")
 
 def top_hdr(left="JIIT NOIDA • CSE DEPARTMENT", right="THEORY OF COMPUTATION (24B11CS212)"):
     return f"""<div class="canva-top-header"><span>{left}</span><span>{right}</span></div>"""
@@ -27,87 +28,152 @@ def btm_bar_cream(left="ACADEMIC RESEARCH MONOGRAPH", right="THEORY OF COMPUTATI
     return f"""<div class="canva-bottom-bar-cream"><span>{left}</span><span>{right}</span></div>"""
 
 # ==============================================================================
-# PAGE 1: TITLE & COVER PAGE (Perfected Proportions, Zero Blank Gaps)
+# PAGE 1: TITLE & COVER PAGE (1:1 DoorDash Architecture & Content Structure)
 # ==============================================================================
-p1 = f"""<section class="page theme-dark">
-    {top_hdr("DEPARTMENT OF COMPUTER SCIENCE &amp; ENGINEERING", "JAYPEE INSTITUTE OF INFORMATION TECHNOLOGY")}
-    <div class="page-content" style="padding-top: 8mm; padding-bottom: 6mm; justify-content: space-between;">
+p1 = f"""<section class="page theme-dark" id="page-1" style="padding: 7mm 11mm 7mm 11mm; display: flex; flex-direction: column; justify-content: space-between;">
+    <div class="cover-frame" style="border: 2px solid var(--gold); border-radius: 6px; padding: 6mm 10mm 5mm 10mm; display: flex; flex-direction: column; justify-content: space-between; height: 100%; box-sizing: border-box; background: rgba(30, 15, 14, 0.85); box-shadow: inset 0 0 40px rgba(0,0,0,0.6);">
         
-        <div>
-            <div class="gold-eyebrow" style="letter-spacing: 4px; font-size: 9.5pt;">ACADEMIC RESEARCH MONOGRAPH &bull; CSE-24B11CS212</div>
-            <div style="width: 70px; height: 3px; background: var(--wine-red); margin: 8px 0 16px 0;"></div>
-            
-            <h1 class="canva-title" style="font-size: 38pt; line-height: 1.08; margin-bottom: 12px; letter-spacing: 2px;">
-                HYBRID DFA&ndash;LLM<br>ANOMALY ENGINE
+        <!-- Top Institutional Header -->
+        <div style="text-align: center; border-bottom: 2px solid var(--wine-red); padding-bottom: 3mm;">
+            <h1 style="font-family: 'Cinzel', serif; font-size: 20px; font-weight: 800; color: var(--gold-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; line-height: 1.2;">
+                Jaypee Institute of Information Technology
             </h1>
-            
-            <div style="font-family: 'Cinzel', serif; font-size: 13pt; color: var(--gold-light); letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 16px;">
-                A High-Assurance Neuro-Symbolic Framework for Microsecond Telemetry Triage
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; color: var(--gold); letter-spacing: 0.4px; margin-bottom: 2px;">
+                Declared Deemed to be University Under Section 3 of UGC Act &bull; A-10, Sector-62, Noida
             </div>
-            
-            <p class="canva-body" style="font-size: 10.5pt; max-width: 95%; line-height: 1.72; color: var(--text-cream-dim); margin-bottom: 14px;">
-                An enterprise-grade, provably secure log auditing architecture integrating Chomsky Type-3 Deterministic Finite Automata, stateful Moore Machine session monitors, and a formal 7-tuple Turing Machine tape sanitizer with asynchronous Large Language Model neural reasoning.
-            </p>
-        </div>
-
-        <!-- Executive Research Mandate Box (Eliminating Upper Gap) -->
-        <div class="dark-card" style="padding: 14px 18px; border-left: 4px solid var(--wine-red); background: rgba(35, 18, 17, 0.95);">
-            <div style="font-family: 'Cinzel', serif; font-size: 8.8pt; color: var(--gold-light); font-weight: bold; letter-spacing: 1.5px; margin-bottom: 4px;">
-                EXECUTIVE RESEARCH MANDATE &amp; CORE THESIS
-            </div>
-            <p style="font-size: 9.2pt; color: var(--text-cream); line-height: 1.58; margin: 0;">
-                Resolving the fundamental tradeoff between brittle, ReDoS-vulnerable regular expression engines and computationally catastrophic cloud LLM inference. By proving that 95.2% of routine authentication telemetry belongs to regular languages L &isin; Type-3, our dual-lane engine processes baseline logs in <strong>1.8 &mu;s on local CPU cores</strong> while reserving generative neural reasoning exclusively for verified semantic anomalies.
-            </p>
-        </div>
-
-        <!-- Middle Decorative Feature Grid (Expanded & Crisp) -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 4px 0;">
-            <div class="dark-card" style="text-align: center; padding: 16px 12px; border-top: 3px solid var(--wine-red); background: #231211;">
-                <div style="font-family: 'Playfair Display', serif; font-size: 26pt; color: var(--gold-light); font-weight: bold;">1.8 &mu;s</div>
-                <div style="font-size: 8.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-cream); margin-top: 4px; font-weight: 600;">DFA Line-Rate</div>
-            </div>
-            <div class="dark-card" style="text-align: center; padding: 16px 12px; border-top: 3px solid var(--gold); background: #231211;">
-                <div style="font-family: 'Playfair Display', serif; font-size: 26pt; color: var(--gold-light); font-weight: bold;">95.2%</div>
-                <div style="font-size: 8.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-cream); margin-top: 4px; font-weight: 600;">Local Edge Triage</div>
-            </div>
-            <div class="dark-card" style="text-align: center; padding: 16px 12px; border-top: 3px solid var(--wine-red); background: #231211;">
-                <div style="font-family: 'Playfair Display', serif; font-size: 26pt; color: var(--gold-light); font-weight: bold;">98.4%</div>
-                <div style="font-size: 8.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-cream); margin-top: 4px; font-weight: 600;">Cost Reduction</div>
-            </div>
-            <div class="dark-card" style="text-align: center; padding: 16px 12px; border-top: 3px solid var(--gold); background: #231211;">
-                <div style="font-family: 'Playfair Display', serif; font-size: 26pt; color: var(--gold-light); font-weight: bold;">O(N)</div>
-                <div style="font-size: 8.5pt; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-cream); margin-top: 4px; font-weight: 600;">Zero ReDoS Bound</div>
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 800; color: var(--text-cream); letter-spacing: 0.8px; text-transform: uppercase;">
+                Department of Computer Science &amp; Engineering
             </div>
         </div>
 
-        <!-- Bottom Metadata Grid -->
-        <div class="dark-card" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; padding: 18px 24px; background: rgba(35, 18, 17, 0.95); border: 1.5px solid var(--border-gold);">
-            <div>
-                <span style="font-family: 'Cinzel', serif; font-size: 8.8pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 6px;">
-                    RESEARCH MONOGRAPH AUTHORS
-                </span>
-                <div style="font-size: 9.8pt; color: var(--text-cream); line-height: 1.68;">
-                    &bull; <strong>Abhishek Bansal</strong> (Enrollment: 2501030123)<br>
-                    &bull; <strong>Divyansh Agarwal</strong> (Enrollment: 2501030124)<br>
-                    &bull; <strong>Arjun Bhardwaj</strong> (Enrollment: 2501030134)<br>
-                    &bull; <strong>Anirudh Sharma</strong> (Enrollment: 2501030135)
+        <!-- Hero Logos Block: High-Res Transparent JIIT Emblem + Official Neuro-Symbolic Engine Insignia -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 36px; margin: 2mm 0 1mm 0;">
+            <!-- Transparent High-Res JIIT Emblem -->
+            <img src="{jiit_b64}" alt="JIIT Emblem" style="height: 100px; width: auto; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));" />
+
+            <!-- Elegant Divider Line -->
+            <div style="width: 2px; height: 75px; background: rgba(197, 159, 122, 0.4); border-radius: 2px;"></div>
+
+            <!-- Official Project Insignia / Emblem -->
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <svg width="72" height="72" viewBox="0 0 80 80" fill="none" style="flex-shrink: 0; filter: drop-shadow(0 4px 12px rgba(128, 24, 24, 0.45));">
+                    <circle cx="40" cy="40" r="38" stroke="#C59F7A" stroke-width="2" fill="#281514" />
+                    <circle cx="40" cy="40" r="32" stroke="#801818" stroke-width="1.5" stroke-dasharray="4,3" fill="none" />
+                    <!-- Automaton States and Transitions -->
+                    <circle cx="26" cy="40" r="10" stroke="#DFC4A8" stroke-width="2" fill="#1E0F0E" />
+                    <text x="26" y="44" fill="#DFC4A8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">q₀</text>
+                    <circle cx="54" cy="40" r="10" stroke="#68D391" stroke-width="2" fill="#1E0F0E" />
+                    <circle cx="54" cy="40" r="7.5" stroke="#68D391" stroke-width="1.2" fill="none" />
+                    <text x="54" y="44" fill="#68D391" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">q₁</text>
+                    <!-- Transition Arrow -->
+                    <path d="M 36 34 Q 40 26 44 34" fill="none" stroke="#C59F7A" stroke-width="2" />
+                    <polygon points="45,34 41,31 46,30" fill="#C59F7A" />
+                    <text x="40" y="24" fill="#C59F7A" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="bold" text-anchor="middle">&delta;</text>
+                </svg>
+                <div style="text-align: left;">
+                    <div style="font-family: 'Cinzel', serif; font-size: 20px; font-weight: 800; color: var(--gold-light); letter-spacing: 2px; line-height: 1.15;">
+                        HYBRID DFA–LLM
+                    </div>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 800; color: #E53E3E; letter-spacing: 3.5px; text-transform: uppercase;">
+                        ANOMALY ENGINE
+                    </div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: var(--gold); letter-spacing: 1.2px; margin-top: 2px;">
+                        NEURO-SYMBOLIC COMPILATION
+                    </div>
                 </div>
             </div>
-            <div style="border-left: 1px solid var(--border-gold); padding-left: 20px;">
-                <span style="font-family: 'Cinzel', serif; font-size: 8.8pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 6px;">
-                    INSTITUTIONAL AFFILIATION
-                </span>
-                <div style="font-size: 9.8pt; color: var(--text-cream); line-height: 1.68;">
-                    Department of Computer Science &amp; Engineering<br>
-                    Jaypee Institute of Information Technology, Noida<br>
-                    Course: Theory of Computation (24B11CS212)<br>
-                    Batch: B2 &bull; Project-Based Learning (PBL)
+        </div>
+
+        <!-- Pill Badge Header -->
+        <div style="text-align: center; margin: 1mm 0 1.5mm 0;">
+            <span style="background: var(--wine-red); color: #F5EFEB; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 9.5px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 4.5px 22px; border-radius: 20px; display: inline-block; border: 1px solid var(--gold); box-shadow: 0 2px 10px rgba(0,0,0,0.4);">
+                Project-Based Learning (PBL) &bull; Technical Monograph &bull; Theory of Computation
+            </span>
+        </div>
+
+        <!-- Grand Project Title -->
+        <div style="text-align: center; margin: 1mm 0 2mm 0;">
+            <h2 style="font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 900; color: var(--gold-light); letter-spacing: 1.5px; line-height: 1.1; margin-bottom: 5px;">
+                HYBRID DFA&ndash;LLM ANOMALY ENGINE
+            </h2>
+            <div style="font-family: 'Playfair Display', serif; font-size: 13.5px; font-style: italic; font-weight: 600; color: var(--gold); margin-bottom: 5px;">
+                A High-Assurance Neuro-Symbolic Framework for Microsecond Telemetry Triage
+            </div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; font-weight: 600; color: var(--text-cream-dim); letter-spacing: 0.6px;">
+                Compiled C++14 DFA &bull; 4-State Moore Machine &bull; 7-Tuple Turing Tape Sanitizer &bull; Asynchronous LLM Neural Reasoning
+            </div>
+        </div>
+
+        <!-- Course Credential Box -->
+        <div style="background: var(--bg-dark-card); border: 1.5px solid var(--border-gold); border-radius: 6px; padding: 3.5mm 6mm; text-align: center; margin: 1mm 0 1.5mm 0; position: relative;">
+            <!-- Credits Badge -->
+            <div style="position: absolute; right: 14px; top: 50%; transform: translateY(-50%); background: #1E0F0E; border: 1px solid var(--border-gold); border-radius: 8px; padding: 4px 10px; text-align: center;">
+                <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: bold; color: var(--gold-light); line-height: 1;">3</div>
+                <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 7px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 1px;">Credits</div>
+            </div>
+
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gold); margin-bottom: 2px;">
+                Submitted In Partial Fulfillment of Requirements for Course:
+            </div>
+            <div style="font-family: 'Playfair Display', serif; font-size: 17px; font-weight: 800; color: #FFFFFF; margin-bottom: 2px;">
+                Theory of Computation &bull; Course Code: 24B11CS212
+            </div>
+            <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 10px; font-weight: 600; color: var(--text-cream-dim);">
+                Bachelor of Technology in Computer Science &amp; Engineering &bull; 2nd Year, 4th Semester (PBL)
+            </div>
+        </div>
+
+        <!-- Bottom Student & Mentor Card Block (4 Columns) -->
+        <div style="background: var(--bg-dark-card); border: 1.5px solid var(--border-gold); border-radius: 6px; padding: 3.5mm 5mm; box-sizing: border-box;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-bottom: 3mm; border-bottom: 1px solid rgba(197, 159, 122, 0.25); padding-bottom: 2.5mm;">
+                <!-- Student 1: Abhishek Bansal -->
+                <div style="border-left: 3px solid var(--wine-red); padding-left: 7px;">
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: var(--gold);">Submitted By:</div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 12.5px; font-weight: 800; color: #FFFFFF;">Abhishek Bansal</div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600; color: var(--gold-light);">Enrolment: 2501030123</div>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 7.5px; color: var(--text-muted);">DFA Grammar &amp; Parser Lead</div>
+                </div>
+
+                <!-- Student 2: Divyansh Agarwal -->
+                <div style="border-left: 3px solid var(--gold); padding-left: 7px;">
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: var(--gold-light);">Submitted By (Lead):</div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 12.5px; font-weight: 800; color: #FFFFFF;">Divyansh Agarwal</div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600; color: var(--gold-light);">Enrolment: 2501030124</div>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 7.5px; color: var(--text-muted);">Systems &amp; Architecture Lead</div>
+                </div>
+
+                <!-- Student 3: Arjun Bhardwaj -->
+                <div style="border-left: 3px solid var(--wine-red); padding-left: 7px;">
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: var(--gold);">Submitted By:</div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 12.5px; font-weight: 800; color: #FFFFFF;">Arjun Bhardwaj</div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600; color: var(--gold-light);">Enrolment: 2501030134</div>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 7.5px; color: var(--text-muted);">Moore Transducer Lead</div>
+                </div>
+
+                <!-- Student 4: Anirudh Sharma -->
+                <div style="border-left: 3px solid var(--gold); padding-left: 7px;">
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.8px; color: var(--gold-light);">Submitted By:</div>
+                    <div style="font-family: 'Playfair Display', serif; font-size: 12.5px; font-weight: 800; color: #FFFFFF;">Anirudh Sharma</div>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; font-weight: 600; color: var(--gold-light);">Enrolment: 2501030135</div>
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 7.5px; color: var(--text-muted);">Turing Machine Sanitizer</div>
+                </div>
+            </div>
+
+            <!-- Faculty Mentor & Institutional Sub-Strip -->
+            <div style="display: flex; justify-content: space-between; align-items: center; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 9.5px;">
+                <div>
+                    <span style="font-weight: 800; color: var(--gold); text-transform: uppercase; font-size: 8px; letter-spacing: 0.8px; display: block;">Course Faculty &amp; Project Mentor:</span>
+                    <span style="font-family: 'Playfair Display', serif; font-weight: 800; font-size: 12px; color: #FFFFFF;">Ms. Kirti Aggarwal</span>
+                    <div style="color: var(--text-muted); font-size: 8.5px; margin-top: 1px;">Department of Computer Science &amp; Engineering &bull; JIIT Noida</div>
+                </div>
+                <div style="text-align: right; color: var(--text-cream-dim); font-size: 9px;">
+                    <div><strong>Academic Session:</strong> 2026–2027 &bull; <strong>Batch:</strong> B2 &bull; <strong>Sem:</strong> 4th</div>
+                    <div style="color: var(--text-muted); font-size: 8px; margin-top: 1px;">Sector-62, Noida, Uttar Pradesh – 201309</div>
                 </div>
             </div>
         </div>
 
     </div>
-    {btm_bar("JAYPEE INSTITUTE OF INFORMATION TECHNOLOGY", "RESEARCH MONOGRAPH VOL. 24B11CS212 • 2026")}
 </section>"""
 with open(os.path.join(pages_dir, "page_1.html"), "w", encoding="utf-8") as f: f.write(p1)
 
