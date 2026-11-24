@@ -20,10 +20,10 @@ racks_b64 = b64_img("server_racks.jpg")
 def top_hdr(left="JIIT NOIDA • CSE DEPARTMENT", right="THEORY OF COMPUTATION (24B11CS212)"):
     return f"""<div class="canva-top-header"><span>{left}</span><span>{right}</span></div>"""
 
-def btm_bar(left="PREPARED BY: RESEARCH & DEV TEAM", right="SESSION 2026–2027 • B.TECH CSE"):
+def btm_bar(left="ACADEMIC RESEARCH MONOGRAPH", right="THEORY OF COMPUTATION • CSE-24B11CS212"):
     return f"""<div class="canva-bottom-bar"><span>{left}</span><span>{right}</span></div>"""
 
-def btm_bar_cream(left="PREPARED BY: RESEARCH & DEV TEAM", right="SESSION 2026–2027 • B.TECH CSE"):
+def btm_bar_cream(left="ACADEMIC RESEARCH MONOGRAPH", right="THEORY OF COMPUTATION • CSE-24B11CS212"):
     return f"""<div class="canva-bottom-bar-cream"><span>{left}</span><span>{right}</span></div>"""
 
 # ==============================================================================
@@ -169,7 +169,7 @@ p2 = f"""<section class="page theme-dark">
 
         </div>
     </div>
-    {btm_bar("PREPARED BY: ABHISHEK BANSAL, DIVYANSH AGARWAL, ARJUN BHARDWAJ, ANIRUDH SHARMA", "PERIOD: SESSION 2026–2027 • BATCH B2")}
+    {btm_bar("EXECUTIVE RESEARCH SYNOPSIS", "DISSERTATION OVERVIEW • SECTION 1.0")}
 </section>"""
 with open(os.path.join(pages_dir, "page_2.html"), "w", encoding="utf-8") as f: f.write(p2)
 
@@ -396,143 +396,143 @@ with open(os.path.join(pages_dir, "page_4.html"), "w", encoding="utf-8") as f: f
 # ==============================================================================
 p5 = f"""<section class="page theme-dark">
     {top_hdr("ALGORITHMIC COMPARISON", "RULES VS. LLM INFERENCE")}
-    <div class="page-content" style="padding-top: 5mm; padding-bottom: 4mm; gap: 12px;">
+    <div class="page-content" style="padding-top: 4mm; padding-bottom: 3mm; gap: 8px;">
         
         <div>
             <div class="gold-eyebrow">ARCHITECTURAL TRADE-OFF ANALYSIS</div>
-            <h1 class="canva-title" style="font-size: 32pt; line-height: 1.05; margin-bottom: 6px;">
+            <h1 class="canva-title" style="font-size: 30pt; line-height: 1.05; margin-bottom: 4px;">
                 THE ALGORITHMIC DILEMMA
             </h1>
-            <p class="canva-body" style="font-size: 10pt; color: var(--text-cream-dim); max-width: 95%; margin-bottom: 10px;">
+            <p class="canva-body" style="font-size: 9.5pt; color: var(--text-cream-dim); max-width: 95%; margin-bottom: 8px; line-height: 1.5;">
                 Modern security engineering is paralyzed between two flawed paradigms: brittle, regex-based rule engines vulnerable to ReDoS attacks, versus generative LLMs that exhaust server compute, breach privacy boundaries, and bankrupt operational budgets.
             </p>
         </div>
 
         <!-- 2-Column Split: Left = Red Capsules, Right = 2 Large Rich Charts -->
-        <div style="display: grid; grid-template-columns: 1.05fr 1.15fr; gap: 22px; flex: 1; align-items: stretch;">
+        <div style="display: grid; grid-template-columns: 1.02fr 1.18fr; gap: 18px; flex: 1; align-items: stretch;">
             
             <!-- Left Column: Key Targets / Specifications (Canva Red Capsule Pills) -->
             <div style="display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <span style="font-family: 'Cinzel', serif; font-size: 9pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 10px;">
+                    <span style="font-family: 'Cinzel', serif; font-size: 8.5pt; letter-spacing: 2px; color: var(--gold); text-transform: uppercase; font-weight: bold; display: block; margin-bottom: 8px;">
                         KEY ARCHITECTURAL BENCHMARKS
                     </span>
 
-                    <div class="canva-capsule" style="padding: 10px 14px; margin-bottom: 8px;">
-                        <span style="font-size: 9pt;">Deterministic DFA Latency:</span>
-                        <span class="val" style="font-size: 9pt; font-weight: bold; color: #FFF;">1.8 &mu;s / event</span>
+                    <div class="canva-capsule" style="padding: 7px 12px; margin-bottom: 5px;">
+                        <span style="font-size: 8.5pt;">Deterministic DFA Latency:</span>
+                        <span class="val" style="font-size: 8.5pt; font-weight: bold; color: #FFF;">1.8 &mu;s / event</span>
                     </div>
 
-                    <div class="canva-capsule" style="padding: 10px 14px; margin-bottom: 8px;">
-                        <span style="font-size: 9pt;">Pure LLM Inference Latency:</span>
-                        <span class="val" style="font-size: 9pt; font-weight: bold; color: #FFB2B2;">840,000 &mu;s (466,000&times;)</span>
+                    <div class="canva-capsule" style="padding: 7px 12px; margin-bottom: 5px;">
+                        <span style="font-size: 8.5pt;">Pure LLM Inference Latency:</span>
+                        <span class="val" style="font-size: 8.5pt; font-weight: bold; color: #FFB2B2;">840,000 &mu;s (466,000&times;)</span>
                     </div>
 
-                    <div class="canva-capsule" style="padding: 10px 14px; margin-bottom: 8px;">
-                        <span style="font-size: 9pt;">Local Edge Offload Ratio:</span>
-                        <span class="val" style="font-size: 9pt; font-weight: bold; color: #68D391;">95.2% Resolved Locally</span>
+                    <div class="canva-capsule" style="padding: 7px 12px; margin-bottom: 5px;">
+                        <span style="font-size: 8.5pt;">Local Edge Offload Ratio:</span>
+                        <span class="val" style="font-size: 8.5pt; font-weight: bold; color: #68D391;">95.2% Resolved Locally</span>
                     </div>
 
-                    <div class="canva-capsule" style="padding: 10px 14px; margin-bottom: 8px;">
-                        <span style="font-size: 9pt;">ReDoS Vulnerability Risk:</span>
-                        <span class="val" style="font-size: 9pt; font-weight: bold; color: #68D391;">Provably 0.0% (O(N) Bound)</span>
+                    <div class="canva-capsule" style="padding: 7px 12px; margin-bottom: 5px;">
+                        <span style="font-size: 8.5pt;">ReDoS Vulnerability Risk:</span>
+                        <span class="val" style="font-size: 8.5pt; font-weight: bold; color: #68D391;">Provably 0.0% (O(N) Bound)</span>
                     </div>
 
-                    <div class="canva-capsule" style="padding: 10px 14px; margin-bottom: 8px;">
-                        <span style="font-size: 9pt;">Credential Leakage Risk:</span>
-                        <span class="val" style="font-size: 9pt; font-weight: bold; color: #68D391;">0.0% (TM Tape Redaction)</span>
+                    <div class="canva-capsule" style="padding: 7px 12px; margin-bottom: 5px;">
+                        <span style="font-size: 8.5pt;">Credential Leakage Risk:</span>
+                        <span class="val" style="font-size: 8.5pt; font-weight: bold; color: #68D391;">0.0% (TM Tape Redaction)</span>
                     </div>
 
-                    <div class="canva-capsule" style="padding: 10px 14px; margin-bottom: 8px;">
-                        <span style="font-size: 9pt;">Host Server CPU Savings:</span>
-                        <span class="val" style="font-size: 9pt; font-weight: bold; color: #68D391;">88.5% Compute Reduction</span>
+                    <div class="canva-capsule" style="padding: 7px 12px; margin-bottom: 5px;">
+                        <span style="font-size: 8.5pt;">Host Server CPU Savings:</span>
+                        <span class="val" style="font-size: 8.5pt; font-weight: bold; color: #68D391;">88.5% Compute Reduction</span>
                     </div>
                 </div>
 
-                <div class="dark-card" style="padding: 12px 14px; background: rgba(35, 18, 17, 0.95); border: 1px solid var(--border-gold);">
-                    <div style="font-size: 8.8pt; color: var(--text-cream-dim); line-height: 1.55;">
+                <div class="dark-card" style="padding: 9px 12px; background: rgba(35, 18, 17, 0.95); border: 1px solid var(--border-gold);">
+                    <div style="font-size: 8.5pt; color: var(--text-cream-dim); line-height: 1.5;">
                         <strong style="color: var(--gold-light);">The Neuro-Symbolic Resolution:</strong> Combine the microsecond deterministic speed of finite automata with the zero-shot reasoning depth of Large Language Models.
                     </div>
                 </div>
             </div>
 
-            <!-- Right Column: Two Large Taller Charts (ViewBox 320x220, Fully Filled!) -->
-            <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 12px;">
+            <!-- Right Column: Two Large Taller Charts -->
+            <div style="display: flex; flex-direction: column; justify-content: space-between; gap: 10px;">
                 
-                <!-- Chart 1: Monthly Cost Comparison Bar Chart (Tall, Rich & Centered) -->
-                <div class="dark-card" style="flex: 1; padding: 12px 16px; display: flex; flex-direction: column; justify-content: space-between; background: #231211;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); padding-bottom: 5px;">
-                        <span style="font-family: 'Cinzel'; font-size: 8.5pt; color: var(--gold); font-weight: bold; letter-spacing: 1.5px;">
+                <!-- Chart 1: Monthly Cost Comparison Bar Chart -->
+                <div class="dark-card" style="flex: 1; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; background: #231211;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); padding-bottom: 4px;">
+                        <span style="font-family: 'Cinzel'; font-size: 8pt; color: var(--gold); font-weight: bold; letter-spacing: 1.2px;">
                             FIGURE 3A: MONTHLY OPERATING COST ($ USD)
                         </span>
-                        <span style="font-size: 8pt; color: var(--text-cream-dim); font-family: 'JetBrains Mono';">100k EPS LOAD</span>
+                        <span style="font-size: 7.5pt; color: var(--text-cream-dim); font-family: 'JetBrains Mono';">100k EPS LOAD</span>
                     </div>
 
-                    <svg viewBox="0 0 300 350" style="width: 100%; flex: 1; min-height: 0; display: block; margin-top: 2px;">
+                    <svg viewBox="0 0 300 210" style="width: 100%; flex: 1; min-height: 0; display: block; margin-top: 2px;">
                         <!-- Grid Lines -->
-                        <line x1="45" y1="40" x2="285" y2="40" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
+                        <line x1="45" y1="30" x2="285" y2="30" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
+                        <line x1="45" y1="65" x2="285" y2="65" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
                         <line x1="45" y1="100" x2="285" y2="100" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
-                        <line x1="45" y1="160" x2="285" y2="160" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
-                        <line x1="45" y1="220" x2="285" y2="220" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
-                        <line x1="45" y1="280" x2="285" y2="280" stroke="rgba(197, 159, 122, 0.4)" stroke-width="1.5" />
+                        <line x1="45" y1="135" x2="285" y2="135" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
+                        <line x1="45" y1="170" x2="285" y2="170" stroke="rgba(197, 159, 122, 0.4)" stroke-width="1.5" />
 
-                        <!-- Y-Axis labels (Large & Legible) -->
-                        <text x="38" y="44" text-anchor="end" fill="#DFC4A8" font-size="11" font-family="JetBrains Mono" font-weight="bold">$15k</text>
-                        <text x="38" y="104" text-anchor="end" fill="#DFC4A8" font-size="11" font-family="JetBrains Mono">$10k</text>
-                        <text x="38" y="164" text-anchor="end" fill="#DFC4A8" font-size="11" font-family="JetBrains Mono">$5k</text>
-                        <text x="38" y="224" text-anchor="end" fill="#DFC4A8" font-size="11" font-family="JetBrains Mono">$2k</text>
-                        <text x="38" y="284" text-anchor="end" fill="#DFC4A8" font-size="11" font-family="JetBrains Mono">$0</text>
+                        <!-- Y-Axis labels -->
+                        <text x="38" y="34" text-anchor="end" fill="#DFC4A8" font-size="9.5" font-family="JetBrains Mono" font-weight="bold">$15k</text>
+                        <text x="38" y="69" text-anchor="end" fill="#DFC4A8" font-size="9.5" font-family="JetBrains Mono">$10k</text>
+                        <text x="38" y="104" text-anchor="end" fill="#DFC4A8" font-size="9.5" font-family="JetBrains Mono">$5k</text>
+                        <text x="38" y="139" text-anchor="end" fill="#DFC4A8" font-size="9.5" font-family="JetBrains Mono">$2k</text>
+                        <text x="38" y="173" text-anchor="end" fill="#DFC4A8" font-size="9.5" font-family="JetBrains Mono">$0</text>
 
-                        <!-- Bar 1: Pure LLM (Cream/White rounded bar - Tall 240px!) -->
-                        <rect x="75" y="40" width="76" height="240" rx="6" fill="#F5EFEB" />
-                        <text x="113" y="28" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono" font-size="12.5" font-weight="bold">$15,200</text>
-                        <text x="113" y="304" text-anchor="middle" fill="#DFC4A8" font-family="Plus Jakarta Sans" font-size="11" font-weight="bold">Pure LLM</text>
+                        <!-- Bar 1: Pure LLM -->
+                        <rect x="75" y="30" width="76" height="140" rx="5" fill="#F5EFEB" />
+                        <text x="113" y="22" text-anchor="middle" fill="#FFFFFF" font-family="JetBrains Mono" font-size="11" font-weight="bold">$15,200</text>
+                        <text x="113" y="188" text-anchor="middle" fill="#DFC4A8" font-family="Plus Jakarta Sans" font-size="10" font-weight="bold">Pure LLM</text>
 
-                        <!-- Bar 2: Hybrid Engine (Wine-Red rounded bar) -->
-                        <rect x="180" y="266" width="76" height="14" rx="4" fill="#801818" stroke="#C59F7A" stroke-width="2" />
-                        <text x="218" y="256" text-anchor="middle" fill="#68D391" font-family="JetBrains Mono" font-size="12.5" font-weight="bold">$240</text>
-                        <text x="218" y="304" text-anchor="middle" fill="#68D391" font-family="Plus Jakarta Sans" font-size="11" font-weight="bold">Hybrid Engine</text>
+                        <!-- Bar 2: Hybrid Engine -->
+                        <rect x="180" y="160" width="76" height="10" rx="3" fill="#801818" stroke="#C59F7A" stroke-width="1.5" />
+                        <text x="218" y="152" text-anchor="middle" fill="#68D391" font-family="JetBrains Mono" font-size="11" font-weight="bold">$240</text>
+                        <text x="218" y="188" text-anchor="middle" fill="#68D391" font-family="Plus Jakarta Sans" font-size="10" font-weight="bold">Hybrid Engine</text>
                     </svg>
                 </div>
 
-                <!-- Chart 2: Latency Scalability Line Chart (Tall, Rich & Centered) -->
-                <div class="dark-card" style="flex: 1; padding: 12px 16px; display: flex; flex-direction: column; justify-content: space-between; background: #231211;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); padding-bottom: 5px;">
-                        <span style="font-family: 'Cinzel'; font-size: 8.5pt; color: var(--gold); font-weight: bold; letter-spacing: 1.5px;">
+                <!-- Chart 2: Latency Scalability Line Chart -->
+                <div class="dark-card" style="flex: 1; padding: 10px 14px; display: flex; flex-direction: column; justify-content: space-between; background: #231211;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); padding-bottom: 4px;">
+                        <span style="font-family: 'Cinzel'; font-size: 8pt; color: var(--gold); font-weight: bold; letter-spacing: 1.2px;">
                             FIGURE 3B: LATENCY RESPONSE VS. LOG VOLUME
                         </span>
-                        <span style="font-size: 8pt; color: var(--text-cream-dim); font-family: 'JetBrains Mono';">SCALING</span>
+                        <span style="font-size: 7.5pt; color: var(--text-cream-dim); font-family: 'JetBrains Mono';">SCALING</span>
                     </div>
 
-                    <svg viewBox="0 0 300 350" style="width: 100%; flex: 1; min-height: 0; display: block; margin-top: 2px;">
+                    <svg viewBox="0 0 300 210" style="width: 100%; flex: 1; min-height: 0; display: block; margin-top: 2px;">
                         <!-- Grid Lines -->
-                        <line x1="50" y1="40" x2="285" y2="40" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
+                        <line x1="50" y1="30" x2="285" y2="30" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
+                        <line x1="50" y1="65" x2="285" y2="65" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
                         <line x1="50" y1="100" x2="285" y2="100" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
-                        <line x1="50" y1="160" x2="285" y2="160" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
-                        <line x1="50" y1="220" x2="285" y2="220" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
-                        <line x1="50" y1="280" x2="285" y2="280" stroke="rgba(197, 159, 122, 0.4)" stroke-width="1.5" />
+                        <line x1="50" y1="135" x2="285" y2="135" stroke="rgba(197, 159, 122, 0.2)" stroke-width="1" />
+                        <line x1="50" y1="170" x2="285" y2="170" stroke="rgba(197, 159, 122, 0.4)" stroke-width="1.5" />
 
-                        <!-- Y-Labels (Large & Legible) -->
-                        <text x="44" y="44" text-anchor="end" fill="#DFC4A8" font-size="10.5" font-family="JetBrains Mono" font-weight="bold">1000ms</text>
-                        <text x="44" y="104" text-anchor="end" fill="#DFC4A8" font-size="10.5" font-family="JetBrains Mono">500ms</text>
-                        <text x="44" y="164" text-anchor="end" fill="#DFC4A8" font-size="10.5" font-family="JetBrains Mono">200ms</text>
-                        <text x="44" y="224" text-anchor="end" fill="#DFC4A8" font-size="10.5" font-family="JetBrains Mono">50ms</text>
-                        <text x="44" y="284" text-anchor="end" fill="#DFC4A8" font-size="10.5" font-family="JetBrains Mono">0ms</text>
+                        <!-- Y-Labels -->
+                        <text x="44" y="34" text-anchor="end" fill="#DFC4A8" font-size="9" font-family="JetBrains Mono" font-weight="bold">1000ms</text>
+                        <text x="44" y="69" text-anchor="end" fill="#DFC4A8" font-size="9" font-family="JetBrains Mono">500ms</text>
+                        <text x="44" y="104" text-anchor="end" fill="#DFC4A8" font-size="9" font-family="JetBrains Mono">200ms</text>
+                        <text x="44" y="139" text-anchor="end" fill="#DFC4A8" font-size="9" font-family="JetBrains Mono">50ms</text>
+                        <text x="44" y="173" text-anchor="end" fill="#DFC4A8" font-size="9" font-family="JetBrains Mono">0ms</text>
 
-                        <!-- Pure LLM Latency Curve (Soaring Exponentially) -->
-                        <path d="M 65 255 Q 150 215 205 125 T 275 48" fill="none" stroke="#E53E3E" stroke-width="4" stroke-dasharray="6,4" />
-                        <circle cx="275" cy="48" r="6" fill="#E53E3E" />
-                        <text x="265" y="36" fill="#FFB2B2" font-size="11.5" font-family="JetBrains Mono" font-weight="bold" text-anchor="end">Pure LLM (840ms+)</text>
+                        <!-- Pure LLM Latency Curve -->
+                        <path d="M 65 150 Q 145 125 195 70 T 265 32" fill="none" stroke="#E53E3E" stroke-width="3.5" stroke-dasharray="5,3" />
+                        <circle cx="265" cy="32" r="5" fill="#E53E3E" />
+                        <text x="255" y="24" fill="#FFB2B2" font-size="9.5" font-family="JetBrains Mono" font-weight="bold" text-anchor="end">Pure LLM (840ms+)</text>
 
-                        <!-- Hybrid Engine Flat Line (At bottom 1.8us) -->
-                        <line x1="65" y1="278" x2="275" y2="278" stroke="#68D391" stroke-width="4.5" />
-                        <circle cx="275" cy="278" r="5.5" fill="#68D391" />
-                        <text x="170" y="268" fill="#68D391" font-size="11" font-family="JetBrains Mono" font-weight="bold">Hybrid Fast-Path (1.8 &mu;s)</text>
+                        <!-- Hybrid Engine Flat Line -->
+                        <line x1="65" y1="168" x2="265" y2="168" stroke="#68D391" stroke-width="3.5" />
+                        <circle cx="265" cy="168" r="4.5" fill="#68D391" />
+                        <text x="165" y="160" fill="#68D391" font-size="9" font-family="JetBrains Mono" font-weight="bold" text-anchor="middle">Hybrid Fast-Path (1.8 &mu;s)</text>
 
-                        <!-- X-Labels (Large & Legible) -->
-                        <text x="65" y="304" text-anchor="middle" fill="#DFC4A8" font-size="10.5" font-family="JetBrains Mono">10k EPS</text>
-                        <text x="170" y="304" text-anchor="middle" fill="#DFC4A8" font-size="10.5" font-family="JetBrains Mono">50k EPS</text>
-                        <text x="275" y="304" text-anchor="middle" fill="#DFC4A8" font-size="10.5" font-family="JetBrains Mono">100k EPS</text>
+                        <!-- X-Labels -->
+                        <text x="65" y="188" text-anchor="middle" fill="#DFC4A8" font-size="9.5" font-family="JetBrains Mono">10k EPS</text>
+                        <text x="165" y="188" text-anchor="middle" fill="#DFC4A8" font-size="9.5" font-family="JetBrains Mono">50k EPS</text>
+                        <text x="265" y="188" text-anchor="middle" fill="#DFC4A8" font-size="9.5" font-family="JetBrains Mono">100k EPS</text>
                     </svg>
                 </div>
 
