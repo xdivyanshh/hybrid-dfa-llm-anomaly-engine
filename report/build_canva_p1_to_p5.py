@@ -46,38 +46,40 @@ p1 = f"""<section class="page theme-dark" id="page-1" style="padding: 7mm 11mm 7
             </div>
         </div>
 
-        <!-- Hero Logos Block: High-Res Transparent JIIT Emblem + Official Neuro-Symbolic Engine Insignia -->
-        <div style="display: flex; justify-content: center; align-items: center; gap: 36px; margin: 2mm 0 1mm 0;">
-            <!-- Transparent High-Res JIIT Emblem -->
-            <img src="{jiit_b64}" alt="JIIT Emblem" style="height: 100px; width: auto; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));" />
+        <!-- Hero Logos Block: High-Res JIIT Emblem Plaque + Official Neuro-Symbolic Engine Insignia Plaque -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 32px; margin: 3mm 0 2mm 0;">
+            <!-- Highly Legible White Card Plaque for JIIT Emblem -->
+            <div style="background: #FFFFFF; border-radius: 12px; padding: 10px 16px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--gold); box-shadow: 0 6px 25px rgba(0,0,0,0.55), 0 0 15px rgba(197, 159, 122, 0.25);">
+                <img src="{jiit_b64}" alt="JIIT Emblem" style="height: 128px; width: auto; object-fit: contain; display: block;" />
+            </div>
 
             <!-- Elegant Divider Line -->
-            <div style="width: 2px; height: 75px; background: rgba(197, 159, 122, 0.4); border-radius: 2px;"></div>
+            <div style="width: 2px; height: 110px; background: rgba(197, 159, 122, 0.45); border-radius: 2px;"></div>
 
-            <!-- Official Project Insignia / Emblem -->
-            <div style="display: flex; align-items: center; gap: 16px;">
-                <svg width="72" height="72" viewBox="0 0 80 80" fill="none" style="flex-shrink: 0; filter: drop-shadow(0 4px 12px rgba(128, 24, 24, 0.45));">
-                    <circle cx="40" cy="40" r="38" stroke="#C59F7A" stroke-width="2" fill="#281514" />
-                    <circle cx="40" cy="40" r="32" stroke="#801818" stroke-width="1.5" stroke-dasharray="4,3" fill="none" />
+            <!-- Official Project Insignia Plaque (Matching Symmetrical Frame) -->
+            <div style="background: #251312; border-radius: 12px; padding: 14px 22px; display: flex; align-items: center; gap: 20px; border: 2px solid var(--gold); box-shadow: 0 6px 25px rgba(0,0,0,0.55), 0 0 15px rgba(128, 24, 24, 0.35);">
+                <svg width="94" height="94" viewBox="0 0 80 80" fill="none" style="flex-shrink: 0; filter: drop-shadow(0 4px 14px rgba(128, 24, 24, 0.5));">
+                    <circle cx="40" cy="40" r="38" stroke="#C59F7A" stroke-width="2.2" fill="#1E0F0E" />
+                    <circle cx="40" cy="40" r="32" stroke="#801818" stroke-width="1.8" stroke-dasharray="4,3" fill="none" />
                     <!-- Automaton States and Transitions -->
-                    <circle cx="26" cy="40" r="10" stroke="#DFC4A8" stroke-width="2" fill="#1E0F0E" />
-                    <text x="26" y="44" fill="#DFC4A8" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">q₀</text>
-                    <circle cx="54" cy="40" r="10" stroke="#68D391" stroke-width="2" fill="#1E0F0E" />
-                    <circle cx="54" cy="40" r="7.5" stroke="#68D391" stroke-width="1.2" fill="none" />
-                    <text x="54" y="44" fill="#68D391" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="bold" text-anchor="middle">q₁</text>
+                    <circle cx="26" cy="40" r="10.5" stroke="#DFC4A8" stroke-width="2" fill="#281514" />
+                    <text x="26" y="44.5" fill="#DFC4A8" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="bold" text-anchor="middle">q₀</text>
+                    <circle cx="54" cy="40" r="10.5" stroke="#68D391" stroke-width="2" fill="#281514" />
+                    <circle cx="54" cy="40" r="7.8" stroke="#68D391" stroke-width="1.4" fill="none" />
+                    <text x="54" y="44.5" fill="#68D391" font-family="'JetBrains Mono', monospace" font-size="10.5" font-weight="bold" text-anchor="middle">q₁</text>
                     <!-- Transition Arrow -->
-                    <path d="M 36 34 Q 40 26 44 34" fill="none" stroke="#C59F7A" stroke-width="2" />
-                    <polygon points="45,34 41,31 46,30" fill="#C59F7A" />
-                    <text x="40" y="24" fill="#C59F7A" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="bold" text-anchor="middle">&delta;</text>
+                    <path d="M 36 33.5 Q 40 25 44 33.5" fill="none" stroke="#C59F7A" stroke-width="2.2" />
+                    <polygon points="46,34 41,30.5 47,29.5" fill="#C59F7A" />
+                    <text x="40" y="23" fill="#C59F7A" font-family="'JetBrains Mono', monospace" font-size="8.5" font-weight="bold" text-anchor="middle">&delta;</text>
                 </svg>
                 <div style="text-align: left;">
-                    <div style="font-family: 'Cinzel', serif; font-size: 20px; font-weight: 800; color: var(--gold-light); letter-spacing: 2px; line-height: 1.15;">
+                    <div style="font-family: 'Cinzel', serif; font-size: 24px; font-weight: 800; color: var(--gold-light); letter-spacing: 2px; line-height: 1.15;">
                         HYBRID DFA–LLM
                     </div>
-                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 11px; font-weight: 800; color: #E53E3E; letter-spacing: 3.5px; text-transform: uppercase;">
+                    <div style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13px; font-weight: 800; color: #E53E3E; letter-spacing: 4px; text-transform: uppercase; margin-top: 2px;">
                         ANOMALY ENGINE
                     </div>
-                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 8.5px; color: var(--gold); letter-spacing: 1.2px; margin-top: 2px;">
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: var(--gold); letter-spacing: 1.5px; margin-top: 3px;">
                         NEURO-SYMBOLIC COMPILATION
                     </div>
                 </div>
